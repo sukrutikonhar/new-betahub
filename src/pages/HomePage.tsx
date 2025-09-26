@@ -588,7 +588,7 @@ export default function HomePage() {
                                 </button>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-white/80">
+                            {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-white/80">
                                 <div className="flex items-center gap-2">
                                     <CheckCircle className="w-5 h-5 text-white" />
                                     <span className="font-medium">No Setup Fees</span>
@@ -601,7 +601,7 @@ export default function HomePage() {
                                     <CheckCircle className="w-5 h-5 text-white" />
                                     <span className="font-medium">24/7 Support</span>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
