@@ -312,32 +312,32 @@ export default function HomePage() {
                                     Streamline your workflows with intelligent automation and process optimization tools.
                                 </p>
                                 <div className="space-y-4">
-                                    <a href="/agents/requirement-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Requirement Agent</h4>
+                                    <a href="/agents/processflow-ai" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">ProcessFlow AI</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Requirements Gathering</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>BPMN process Flow</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Business Analysis</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/test-case-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Test Case Agent</h4>
+                                    <a href="/agents/testforge-ai" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">TestForge AI</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>QA Automation</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Test Management</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Test Case Generation</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/fit-gap-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Fit-Gap Agent</h4>
+                                    <a href="/agents/fit-gap-ai" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Fit-Gap AI</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>ERP Assessment</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Process Alignment</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Gap Analysis</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/crm-config-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">CRM Config Agent</h4>
+                                    <a href="/agents/config-ai" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Config AI</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>CRM Setup</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Dynamics 365</span>
@@ -361,24 +361,24 @@ export default function HomePage() {
                                     Empower your team with comprehensive learning and knowledge management solutions.
                                 </p>
                                 <div className="space-y-4">
-                                    <a href="/agents/training-agent-2" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Training Agent 2.0</h4>
+                                    <a href="/agents/skillforgex" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">SkillForgeX</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Training documentation</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Knowledge Transfer</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Interactive Learning</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/rag-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">RAG Agent</h4>
+                                    <a href="/agents/retrievx" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">RetrievX</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Retrieval-Augmented Generation</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Knowledge Base Search</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Contextual AI</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/support-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Support Agent</h4>
+                                    <a href="/agents/helpdeskx" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">HelpDeskX</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Helpdesk Automation</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Customer Service</span>
@@ -402,24 +402,24 @@ export default function HomePage() {
                                     Enhance your development workflow with intelligent coding and technical support tools.
                                 </p>
                                 <div className="space-y-4">
-                                    <a href="/agents/code-documentation-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Code Documentation Agent</h4>
+                                    <a href="/agents/codedociq" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">CodeDocIQ</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Auto Documentation</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Developer Productivity</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Knowledge Sharing</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/deep-research-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Deep Research Agent</h4>
+                                    <a href="/agents/resolviq" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">ResolvIQ</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Market Intelligence</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Competitive Analysis</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Data-Driven Insights</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/finops-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">FinOps Agent</h4>
+                                    <a href="/agents/finoptima-iq" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">FinOptima IQ</h4>
                                         <div className="flex flex-wrap gap-2">
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Cloud Cost Optimization</span>
                                             <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Financial Operations</span>
