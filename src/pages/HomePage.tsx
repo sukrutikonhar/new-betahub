@@ -16,17 +16,17 @@ export default function HomePage() {
                 </div>
             </section> */}
 
-            {/* Hero Section with Client Logos */}
+            {/* Hero Section */}
             <section className="w-full relative overflow-hidden">
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(179deg, #2E394D 0%, #204A9B 25%, #204A9B 50%, #204A9B 65%, #5A4FCF 75%, #8B5CF6 85%, #A78BFA 95%, #C4B5FD 100%)' }}></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-purple-800 via-purple-700 to-purple-300"></div>
                 {/* <div className="absolute inset-0">
                     <div className="absolute top-20 left-10 w-32 h-32 bg-bright-pink opacity-20 rounded-full blur-xl"></div>
                     <div className="absolute bottom-20 right-10 w-40 h-40 bg-muted-purple opacity-20 rounded-full blur-xl"></div>
                     <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-soft-lavender opacity-30 rounded-full blur-lg"></div>
                 </div> */}
 
-                <div className="section-container section-padding-lg relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+                <div className="section-container pt-32 pb-16 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-8">
                         <div className="lg:col-span-8">
                             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 4px 8px rgba(0,0,0,0.4)' }}>
                                 Bridge the Gap between AI Vision & Enterprise Execution
@@ -35,10 +35,10 @@ export default function HomePage() {
                                 With Betahub, enterprises get more than just AI Agents - they get trusted expertise to turn AI investments into ROI.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button className="bg-white text-strong-blue hover:bg-gray-100 px-8 py-2 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                                <button className="bg-white text-purple-800 hover:bg-gray-100 px-8 py-2 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                                     Book a Demo
                                 </button>
-                                <button className="border-2 border-white text-white hover:bg-white hover:text-strong-blue px-8 py-2 rounded-xl font-semibold transition-all duration-300">
+                                <button className="border-2 border-white text-white hover:bg-white hover:text-purple-800 px-8 py-2 rounded-xl font-semibold transition-all duration-300">
                                     Explore Agents
                                 </button>
                             </div>
@@ -75,36 +75,41 @@ export default function HomePage() {
 
                                     <div className="bg-white/5 rounded-lg p-4">
                                         <div className="flex items-center justify-between mb-2">
-                                            <span className="text-white text-sm font-medium">Implementation Time</span>
-                                            <span className="text-bright-pink text-sm font-bold">Few Minutes</span>
+                                            <span className="text-white text-sm font-medium">See results in</span>
+                                            <span className="text-pink-400 text-sm font-bold">Few Weeks</span>
                                         </div>
                                         <div className="w-full bg-white/20 rounded-full h-2">
                                             <div className="bg-gradient-primary h-2 rounded-full w-3/4"></div>
                                         </div>
                                     </div>
 
-                                    <button className="w-full bg-white text-strong-blue hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <button className="w-full bg-white text-purple-800 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                                         View All Agents
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    {/* Client Logos Section */}
+
+            {/* Client Logos Section */}
+            <section className="w-full bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden">
+                <div className="section-container section-padding">
                     <div className="text-center">
-                        <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full mb-8 border border-white/30">
-                            <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
-                            <span className="text-white text-sm font-semibold uppercase tracking-wider">Trusted by Industry Leaders</span>
+                        <div className="inline-flex items-center px-4 py-2 bg-white/60 rounded-full mb-8 border border-white/80">
+                            <div className="w-2 h-2 bg-core-purple rounded-full mr-2"></div>
+                            <span className="text-core-purple text-sm font-semibold uppercase tracking-wider">Trusted by Industry Leaders</span>
                         </div>
 
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
                             {[
-                                { name: 'Microsoft', color: 'bg-white/20 border-white/30 text-white' },
-                                { name: 'Google', color: 'bg-white/20 border-white/30 text-white' },
-                                { name: 'Amazon', color: 'bg-white/20 border-white/30 text-white' },
-                                { name: 'Salesforce', color: 'bg-white/20 border-white/30 text-white' },
-                                { name: 'IBM', color: 'bg-white/20 border-white/30 text-white' }
+                                { name: 'Microsoft', color: 'bg-white/80 border-white/60 text-gray-700' },
+                                { name: 'Google', color: 'bg-white/80 border-white/60 text-gray-700' },
+                                { name: 'Amazon', color: 'bg-white/80 border-white/60 text-gray-700' },
+                                { name: 'Salesforce', color: 'bg-white/80 border-white/60 text-gray-700' },
+                                { name: 'IBM', color: 'bg-white/80 border-white/60 text-gray-700' }
                             ].map((company) => (
                                 <div key={company.name} className="group">
                                     <div className={`h-16 border-2 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg ${company.color}`}>
@@ -113,11 +118,9 @@ export default function HomePage() {
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 </div>
             </section>
-
 
             {/* Problem Statement Section */}
             <section className="w-full bg-white relative overflow-hidden">
@@ -126,10 +129,6 @@ export default function HomePage() {
                         {/* Left Side - Title and Content (3 columns) */}
                         <div className="lg:col-span-3">
                             <div className="max-w-2xl">
-                                <div className="inline-flex items-center px-4 py-2 bg-soft-lavender/20 rounded-full mb-6 border border-soft-lavender/30">
-                                    <div className="w-2 h-2 bg-core-purple rounded-full mr-2"></div>
-                                    <span className="text-core-purple text-sm font-semibold uppercase tracking-wider">Betahub</span>
-                                </div>
                                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
                                     Solving the AI Value Gap
                                 </h2>
@@ -140,7 +139,6 @@ export default function HomePage() {
 
                                 <div className="relative mb-8">
                                     <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-core-purple to-bright-pink rounded-full shadow-lg">
-                                        <div className="w-2 h-2 bg-white rounded-sm mr-3 animate-pulse"></div>
                                         <p className="text-xl font-bold text-white">
                                             Beta Hub was built to solve this.
                                         </p>
@@ -218,10 +216,7 @@ export default function HomePage() {
 
                         <div className="relative z-10">
                             <div className="text-center mb-16">
-                                <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full mb-6 border border-white/30">
-                                    <div className="w-2 h-2 bg-bright-pink rounded-full mr-2"></div>
-                                    <span className="text-white text-sm font-semibold uppercase tracking-wider">Our Approach</span>
-                                </div>
+
                                 <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">One Partner. Complete Transformation.</h2>
                                 <p className="text-xl text-white/90 max-w-4xl mx-auto">
                                     Unlike point solutions, Beta Hub combines AI products for speed with services for fit:
@@ -264,6 +259,7 @@ export default function HomePage() {
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
 
@@ -281,10 +277,7 @@ export default function HomePage() {
 
                 <div className="section-container section-padding relative z-10">
                     <div className="text-center mb-20">
-                        <div className="inline-flex items-center px-4 py-2 bg-pink-100/50 rounded-full mb-6 border border-pink-200/50">
-                            <div className="w-2 h-2 bg-bright-pink rounded-full mr-2"></div>
-                            <span className="text-bright-pink text-sm font-semibold uppercase tracking-wider">AI Agents</span>
-                        </div>
+
                         <h2 className="text-4xl lg:text-5xl font-bold text-dark-gray mb-6">Meet Your AI Workforce</h2>
                         <p className="text-xl text-gray-600 max-w-4xl mx-auto">
                             Specialized AI agents designed to seamlessly integrate into your enterprise workflows and drive unparalleled efficiency.
@@ -305,36 +298,36 @@ export default function HomePage() {
                                     Streamline your workflows with intelligent automation and process optimization tools.
                                 </p>
                                 <div className="space-y-4">
-                                    <a href="/agents/processflow-ai" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">ProcessFlow AI</h4>
+                                    <a href="/agents/requirement-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Requirement Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Workflow Automation</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Process Optimization</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Efficiency Boost</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Requirements Gathering</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>BPMN process Flow</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Business Analysis</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/testforge-ai" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">TestForge AI</h4>
+                                    <a href="/agents/test-case-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Test Case Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Automated Testing</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Quality Assurance</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Bug Detection</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>QA Automation</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Test Management</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Test Case Generation</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/fit-gap-ai" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Fit-Gap AI</h4>
+                                    <a href="/agents/fit-gap-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Fit-Gap Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Gap Analysis</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Process Assessment</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Optimization</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>ERP Assessment</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Process Alignment</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Gap Analysis</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/confg-ai" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Confg AI</h4>
+                                    <a href="/agents/crm-config-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">CRM Config Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Configuration</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Setup Automation</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>System Management</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>CRM Setup</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Dynamics 365</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Workflow Automation</span>
                                         </div>
                                     </a>
                                 </div>
@@ -354,28 +347,28 @@ export default function HomePage() {
                                     Empower your team with comprehensive learning and knowledge management solutions.
                                 </p>
                                 <div className="space-y-4">
-                                    <a href="/agents/skillforgex" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">SkillForgeX</h4>
+                                    <a href="/agents/training-agent-2" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Training Agent 2.0</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Training & Adoption</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Learning</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Multi-format Content Creation</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Training documentation</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Knowledge Transfer</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Interactive Learning</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/retrievx" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">RetrievX</h4>
+                                    <a href="/agents/rag-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">RAG Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Knowledge Retrieval</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Search & Discovery</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Information Access</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Retrieval-Augmented Generation</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Knowledge Base Search</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Contextual AI</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/helpdeskx" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">HelpDeskX</h4>
+                                    <a href="/agents/support-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Support Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Support Automation</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Ticket Management</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Customer Service</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Helpdesk Automation</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Customer Service</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Incident Management</span>
                                         </div>
                                     </a>
                                 </div>
@@ -395,28 +388,28 @@ export default function HomePage() {
                                     Enhance your development workflow with intelligent coding and technical support tools.
                                 </p>
                                 <div className="space-y-4">
-                                    <a href="/agents/codedociq" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">CodeDocIQ</h4>
+                                    <a href="/agents/code-documentation-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Code Documentation Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Code Documentation</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Technical Writing</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Code Analysis</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Auto Documentation</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Developer Productivity</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Knowledge Sharing</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/resolviq" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">ResolvIQ</h4>
+                                    <a href="/agents/deep-research-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">Deep Research Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Issue Resolution</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Technical Support</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Problem Solving</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Market Intelligence</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Competitive Analysis</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Data-Driven Insights</span>
                                         </div>
                                     </a>
-                                    <a href="/agents/finoptima-iq" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
-                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">FinOptima IQ</h4>
+                                    <a href="/agents/finops-agent" className="group/agent block bg-gray-50 hover:bg-gray-100 rounded-xl p-4 transition-colors duration-200 border border-gray-200 hover:border-purple-200">
+                                        <h4 className="text-lg font-semibold text-dark-gray group-hover/agent:text-purple-600 mb-2 text-left transition-colors duration-200">FinOps Agent</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Financial Analysis</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#e8caf7', color: '#771af3' }}>Optimization</span>
-                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#f9d1ef', color: '#b1229b' }}>Data Intelligence</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Cloud Cost Optimization</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#F2E2FB', color: '#771af3' }}>Financial Operations</span>
+                                            <span className="px-3 py-1 text-xs rounded-full" style={{ backgroundColor: '#FED6F8', color: '#b1229b' }}>Budget Tracking</span>
                                         </div>
                                     </a>
                                 </div>
@@ -450,7 +443,6 @@ export default function HomePage() {
                 <div className="section-container section-padding relative z-10">
                     <div className="text-center mb-20">
                         <div className="inline-flex items-center px-4 py-2 bg-core-purple/10 rounded-full mb-6 border border-core-purple/20">
-                            <div className="w-2 h-2 bg-core-purple rounded-full mr-2"></div>
                             <span className="text-core-purple text-sm font-semibold uppercase tracking-wider">Events</span>
                         </div>
                         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Upcoming Events</h2>
@@ -469,7 +461,7 @@ export default function HomePage() {
                                     <div className="absolute top-4 right-4">
                                         <div className="inline-flex items-center px-3 py-1 bg-bright-pink/90 text-white text-sm font-semibold rounded-full">
                                             <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
-                                            Live Event
+                                            Virtual Event
                                         </div>
                                     </div>
                                     <div className="absolute bottom-4 left-4">

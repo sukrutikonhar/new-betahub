@@ -53,7 +53,7 @@ export default function Header() {
 
     const getNavLinkClasses = (path: string) => {
         const baseClasses = "font-medium transition-colors duration-300";
-        const activeClasses = isActive(path) ? "text-core-purple" : "";
+        const activeClasses = isActive(path) ? "text-muted-purple" : "";
 
         if (isHomePage && !isScrolled) {
             return `${baseClasses} ${activeClasses || "text-white hover:text-bright-pink"}`;
