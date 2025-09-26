@@ -80,7 +80,7 @@ export default function Header() {
                         className="transition-all duration-300"
                     >
                         <img
-                            src={isHomePage && !isScrolled ? "/src/assets/logos/logo-white.webp" : "/src/assets/logos/logo-dark.webp"}
+                            src={isHomePage && !isScrolled ? "/logos/logo-white.webp" : "/logos/logo-dark.webp"}
                             alt="BetaHub Logo"
                             className="w-auto h-12 object-contain"
                         />

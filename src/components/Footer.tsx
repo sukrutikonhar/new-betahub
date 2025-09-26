@@ -44,7 +44,7 @@ export default function Footer() {
                     <div className="lg:col-span-5">
                         <div className="mb-6">
                             <img
-                                src="/src/assets/logos/logo-white.webp"
+                                src="/logos/logo-white.webp"
                                 alt="BetaHub Logo"
                                 className="w-auto h-16 object-contain"
                             />
