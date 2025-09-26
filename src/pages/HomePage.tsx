@@ -485,7 +485,7 @@ export default function HomePage() {
                                     <div className="flex flex-col items-center gap-3 mb-6">
                                         <div className="flex items-center gap-2" style={{ color: '#60697b' }}>
                                             <Building2 className="w-4 h-4" />
-                                            <span className="text-sm font-medium">Microsoft HQ</span>
+                                            <span className="text-sm font-medium">Microsoft HQ, Stockholm</span>
                                         </div>
                                         <div className="flex items-center gap-2" style={{ color: '#60697b' }}>
                                             <Calendar className="w-4 h-4" />
@@ -568,7 +568,7 @@ export default function HomePage() {
                             </div>
 
                             <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                                Ready to Build Your AI Agents?
+                                Customize your AI Agents
                             </h3>
 
                             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
