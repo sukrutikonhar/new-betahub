@@ -99,7 +99,6 @@ export default function HomePage() {
                 <div className="section-container section-padding">
                     <div className="text-center">
                         <div className="inline-flex items-center px-4 py-2 bg-white/60 rounded-full mb-8 border border-white/80">
-                            <div className="w-2 h-2 bg-core-purple rounded-full mr-2"></div>
                             <span className="text-core-purple text-sm font-semibold uppercase tracking-wider">Trusted by Industry Leaders</span>
                         </div>
 
@@ -442,9 +441,6 @@ export default function HomePage() {
 
                 <div className="section-container section-padding relative z-10">
                     <div className="text-center mb-20">
-                        <div className="inline-flex items-center px-4 py-2 bg-core-purple/10 rounded-full mb-6 border border-core-purple/20">
-                            <span className="text-core-purple text-sm font-semibold uppercase tracking-wider">Events</span>
-                        </div>
                         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Upcoming Events</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Join us at industry-leading events and discover how AI agents are transforming enterprise operations.
