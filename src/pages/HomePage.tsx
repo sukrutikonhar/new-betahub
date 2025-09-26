@@ -124,7 +124,7 @@ export default function HomePage() {
                                 { name: 'IBM', logo: '/brands/Logos-05.webp' }
                             ].map((company) => (
                                 <div key={company.name} className="group">
-                                    <div className="h-16 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+                                    <div className="h-16 flex items-center justify-center">
                                         <img
                                             src={company.logo}
                                             alt={company.name}
