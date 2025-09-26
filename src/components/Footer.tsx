@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ROUTES, ROUTE_LABELS } from "../router/routes";
-import { Bot, Mail, Phone, MapPin, ArrowRight, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Linkedin } from "lucide-react";
 
 export default function Footer() {
     const footerLinks = [
@@ -42,33 +42,29 @@ export default function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
                     {/* Company Info - Takes 5 columns */}
                     <div className="lg:col-span-5">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 bg-gradient-to-br from-bright-pink to-pink-400 rounded-2xl flex items-center justify-center">
-                                <Bot className="w-6 h-6 text-white" />
-                            </div>
-                            <h3 className="text-3xl font-bold text-white" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>BetaHub</h3>
+                        <div className="mb-6">
+                            <img
+                                src="/src/assets/logos/logo-white.webp"
+                                alt="BetaHub Logo"
+                                className="w-auto h-16 object-contain"
+                            />
                         </div>
 
-                        <p className="text-white/90 mb-8 text-lg leading-relaxed max-w-md" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
+                        <p className="text-white/90 mb-6 text-lg leading-relaxed max-w-md" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
                             Building the future with innovative AI solutions and cutting-edge technology. Transform your business with intelligent automation.
                         </p>
 
-                        <div className="space-y-4">
-                            <h4 className="text-lg font-semibold text-white mb-4" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Why Choose BetaHub?</h4>
-                            <div className="space-y-3">
-                                <div className="flex items-center gap-3">
-                                    <CheckCircle className="w-5 h-5 text-bright-pink flex-shrink-0" />
-                                    <span className="text-white/90" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Enterprise-grade security</span>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <CheckCircle className="w-5 h-5 text-bright-pink flex-shrink-0" />
-                                    <span className="text-white/90" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>24/7 expert support</span>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <CheckCircle className="w-5 h-5 text-bright-pink flex-shrink-0" />
-                                    <span className="text-white/90" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Scalable AI solutions</span>
-                                </div>
-                            </div>
+                        <div className="flex items-center gap-3">
+                            <Linkedin className="w-5 h-5 text-bright-pink" />
+                            <a
+                                href="https://www.linkedin.com/company/beta-hub-ai/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white/90 hover:text-bright-pink transition-colors duration-300"
+                                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}
+                            >
+                                Follow us on LinkedIn
+                            </a>
                         </div>
                     </div>
 
@@ -129,17 +125,10 @@ export default function Footer() {
 
                             <div className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-bright-pink flex-shrink-0" />
-                                <a href="mailto:hello@betahub.com" className="text-white/90 hover:text-bright-pink transition-colors" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
-                                    hello@betahub.com
+                                <a href="mailto:info@betahub.ai" className="text-white/90 hover:text-bright-pink transition-colors" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
+                                    info@betahub.ai
                                 </a>
                             </div>
-                        </div>
-
-                        <div className="mt-8">
-                            <button className="bg-gradient-to-r from-bright-pink to-pink-400 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center gap-2 group">
-                                Get Started
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </button>
                         </div>
                     </div>
                 </div>
