@@ -1,4 +1,4 @@
-import { BookOpen, FileText, Search, Calendar, ArrowRight, Tag } from 'lucide-react';
+import { BookOpen, ArrowRight, Tag } from 'lucide-react';
 
 export default function ResourcesPage() {
   const blogPosts = [

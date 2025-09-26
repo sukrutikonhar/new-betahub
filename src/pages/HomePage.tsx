@@ -1,4 +1,4 @@
-import { ArrowRight, Bot, Zap, Shield, TrendingUp, Users, Award, CheckCircle, Building2, Rocket, Target } from 'lucide-react';
+import { ArrowRight, Bot, Zap, Users, CheckCircle, Building2, Rocket, Target } from 'lucide-react';
 
 export default function HomePage() {
     return (
@@ -119,7 +119,7 @@ export default function HomePage() {
                                 { name: 'Amazon', color: 'bg-orange-50 border-orange-200 text-orange-600' },
                                 { name: 'Salesforce', color: 'bg-blue-50 border-blue-200 text-blue-600' },
                                 { name: 'IBM', color: 'bg-gray-50 border-gray-200 text-gray-600' }
-                            ].map((company, index) => (
+                            ].map((company) => (
                                 <div key={company.name} className="group">
                                     <div className={`h-16 border-2 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg ${company.color}`}>
                                         <span className="font-bold text-sm tracking-wide">{company.name}</span>

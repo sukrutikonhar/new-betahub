@@ -20,12 +20,6 @@ export default function Footer() {
         { label: "Press", path: "#" },
     ];
 
-    const supportLinks = [
-        { label: "Help Center", path: "#" },
-        { label: "Documentation", path: "#" },
-        { label: "API Reference", path: "#" },
-        { label: "Status", path: "#" },
-    ];
 
     const legalLinks = [
         { label: "Privacy Policy", path: "#" },

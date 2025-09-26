@@ -1,4 +1,4 @@
-import { Bot, Target, Users, Lightbulb, Award, TrendingUp, CheckCircle } from 'lucide-react';
+import { Bot, Target, Users, Award, TrendingUp } from 'lucide-react';
 
 export default function AboutPage() {
   return (

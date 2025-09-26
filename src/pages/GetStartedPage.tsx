@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle, Calendar, MessageCircle, Bot, Zap, Users, Award } from 'lucide-react';
+import { CheckCircle, Calendar, MessageCircle, Bot, Zap, Users, Award } from 'lucide-react';
 
 export default function GetStartedPage() {
   const steps = [
