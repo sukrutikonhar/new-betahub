@@ -124,11 +124,11 @@ export default function HomePage() {
                                 { name: 'IBM', logo: '/brands/Logos-05.webp' }
                             ].map((company) => (
                                 <div key={company.name} className="group">
-                                    <div className="h-16 border-2 border-purple-200 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:border-purple-400 bg-white/50 backdrop-blur-sm">
+                                    <div className="h-16 flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
                                         <img
                                             src={company.logo}
                                             alt={company.name}
-                                            className="max-w-full max-h-full object-contain"
+                                            className="w-full h-full object-contain scale-125"
                                         />
                                     </div>
                                 </div>
@@ -154,13 +154,7 @@ export default function HomePage() {
                                 </p>
 
                                 <div className="relative mb-8">
-                                    <p className="text-2xl font-bold text-purple-600" style={{
-                                        fontFamily: '"Kalam", "Caveat", "Marker Felt", "Chalkduster", "Comic Sans MS", cursive',
-                                        textShadow: '1px 1px 2px rgba(139, 69, 19, 0.15)',
-                                        display: 'inline-block',
-                                        letterSpacing: '0.5px',
-                                        fontWeight: 'bold'
-                                    }}>
+                                    <p className="text-2xl font-bold bg-gradient-to-r from-core-purple to-bright-pink bg-clip-text text-transparent">
                                         Beta Hub was built to solve this.
                                     </p>
                                 </div>
