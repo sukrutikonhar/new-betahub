@@ -117,15 +117,19 @@ export default function HomePage() {
 
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
                             {[
-                                { name: 'Microsoft', color: 'border-gray-300 text-gray-700' },
-                                { name: 'Google', color: 'border-gray-300 text-gray-700' },
-                                { name: 'Amazon', color: 'border-gray-300 text-gray-700' },
-                                { name: 'Salesforce', color: 'border-gray-300 text-gray-700' },
-                                { name: 'IBM', color: 'border-gray-300 text-gray-700' }
+                                { name: 'Microsoft', logo: '/brands/Logos-01.webp' },
+                                { name: 'Google', logo: '/brands/Logos-02.webp' },
+                                { name: 'Amazon', logo: '/brands/Logos-03.webp' },
+                                { name: 'Salesforce', logo: '/brands/Logos-04.webp' },
+                                { name: 'IBM', logo: '/brands/Logos-05.webp' }
                             ].map((company) => (
                                 <div key={company.name} className="group">
-                                    <div className={`h-16 border-2 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg ${company.color}`}>
-                                        <span className="font-bold text-sm tracking-wide">{company.name}</span>
+                                    <div className="h-16 border-2 border-purple-200 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:border-purple-400 bg-white/50 backdrop-blur-sm">
+                                        <img
+                                            src={company.logo}
+                                            alt={company.name}
+                                            className="max-w-full max-h-full object-contain"
+                                        />
                                     </div>
                                 </div>
                             ))}
@@ -469,7 +473,11 @@ export default function HomePage() {
                             {/* Microsoft Event */}
                             <div className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
                                 {/* Event Image */}
-                                <div className="relative h-48 bg-gradient-to-br from-core-purple to-muted-purple overflow-hidden">
+                                <div className="relative h-48 overflow-hidden" style={{
+                                    backgroundImage: 'url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }}>
                                     <div className="absolute inset-0 bg-black/20"></div>
                                 </div>
 
@@ -501,9 +509,12 @@ export default function HomePage() {
                             {/* Gartner Event */}
                             <div className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
                                 {/* Event Image */}
-                                <div className="relative h-48 bg-gradient-to-br from-core-purple to-muted-purple overflow-hidden">
+                                <div className="relative h-48 overflow-hidden" style={{
+                                    backgroundImage: 'url("https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }}>
                                     <div className="absolute inset-0 bg-black/20"></div>
-
                                 </div>
 
                                 <div className="p-6">
