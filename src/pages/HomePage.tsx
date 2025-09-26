@@ -76,7 +76,7 @@ export default function HomePage() {
                                     <div className="bg-white/5 rounded-lg p-4">
                                         <div className="flex items-center justify-between mb-2">
                                             <span className="text-white text-sm font-medium">See results in</span>
-                                            <span className="text-pink-400 text-sm font-bold">Few Weeks</span>
+                                            <span className="text-pink-400 text-sm font-bold">Weeks not Months</span>
                                         </div>
                                         <div className="w-full bg-white/20 rounded-full h-2">
                                             <div className="bg-gradient-primary h-2 rounded-full w-3/4"></div>
@@ -84,7 +84,7 @@ export default function HomePage() {
                                     </div>
 
                                     <button className="w-full bg-white text-purple-800 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                                        View All Agents
+                                        Try Now
                                     </button>
                                 </div>
                             </div>
@@ -95,20 +95,33 @@ export default function HomePage() {
 
 
             {/* Client Logos Section */}
-            <section className="w-full bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 relative overflow-hidden">
-                <div className="section-container section-padding">
+            <section className="w-full bg-white relative overflow-hidden">
+                {/* Glowing Bubbles Background */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute top-10 left-10 w-32 h-32 bg-purple-200/30 rounded-full blur-2xl animate-pulse"></div>
+                    <div className="absolute top-20 right-20 w-40 h-40 bg-pink-200/30 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+                    <div className="absolute bottom-10 left-1/4 w-28 h-28 bg-blue-200/30 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+                    <div className="absolute bottom-20 right-1/3 w-36 h-36 bg-purple-300/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-pink-300/25 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+                </div>
+
+                <div className="section-container section-padding relative z-10">
                     <div className="text-center">
-                        <div className="inline-flex items-center px-4 py-2 bg-white/60 rounded-full mb-8 border border-white/80">
-                            <span className="text-core-purple text-sm font-semibold uppercase tracking-wider">Trusted by Industry Leaders</span>
+                        <div className="flex items-center justify-center mb-8">
+                            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-purple-300 to-purple-500"></div>
+                            <div className="px-6">
+                                <span className="text-purple-800 text-sm font-semibold uppercase tracking-wider">Trusted by Industry Leaders</span>
+                            </div>
+                            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-purple-300 to-purple-500"></div>
                         </div>
 
                         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
                             {[
-                                { name: 'Microsoft', color: 'bg-white/80 border-white/60 text-gray-700' },
-                                { name: 'Google', color: 'bg-white/80 border-white/60 text-gray-700' },
-                                { name: 'Amazon', color: 'bg-white/80 border-white/60 text-gray-700' },
-                                { name: 'Salesforce', color: 'bg-white/80 border-white/60 text-gray-700' },
-                                { name: 'IBM', color: 'bg-white/80 border-white/60 text-gray-700' }
+                                { name: 'Microsoft', color: 'border-gray-300 text-gray-700' },
+                                { name: 'Google', color: 'border-gray-300 text-gray-700' },
+                                { name: 'Amazon', color: 'border-gray-300 text-gray-700' },
+                                { name: 'Salesforce', color: 'border-gray-300 text-gray-700' },
+                                { name: 'IBM', color: 'border-gray-300 text-gray-700' }
                             ].map((company) => (
                                 <div key={company.name} className="group">
                                     <div className={`h-16 border-2 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg ${company.color}`}>
@@ -128,20 +141,24 @@ export default function HomePage() {
                         {/* Left Side - Title and Content (3 columns) */}
                         <div className="lg:col-span-3">
                             <div className="max-w-2xl">
-                                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                                <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight" style={{ color: '#343f52' }}>
                                     Solving the AI Value Gap
                                 </h2>
 
-                                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                                <p className="text-xl mb-8 leading-relaxed" style={{ color: '#60697b' }}>
                                     Enterprises know AI has potential, but they struggle to move from ideas to impact. Most tools don't integrate, don't adapt, and don't scale.
                                 </p>
 
                                 <div className="relative mb-8">
-                                    <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-core-purple to-bright-pink rounded-full shadow-lg">
-                                        <p className="text-xl font-bold text-white">
-                                            Beta Hub was built to solve this.
-                                        </p>
-                                    </div>
+                                    <p className="text-2xl font-bold text-purple-600" style={{
+                                        fontFamily: '"Kalam", "Caveat", "Marker Felt", "Chalkduster", "Comic Sans MS", cursive',
+                                        textShadow: '1px 1px 2px rgba(139, 69, 19, 0.15)',
+                                        display: 'inline-block',
+                                        letterSpacing: '0.5px',
+                                        fontWeight: 'bold'
+                                    }}>
+                                        Beta Hub was built to solve this.
+                                    </p>
                                 </div>
 
                                 {/* <div className="flex flex-col sm:flex-row gap-4">
@@ -228,8 +245,8 @@ export default function HomePage() {
                                     <div className="w-20 h-20 bg-gradient-to-br from-bright-pink to-pink-400 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                                         <Bot className="w-10 h-10 text-white" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center group-hover:text-bright-pink transition-colors">Products</h3>
-                                    <p className="text-gray-600 text-center leading-relaxed text-base">
+                                    <h3 className="text-2xl font-bold mb-6 text-center group-hover:text-bright-pink transition-colors" style={{ color: '#343f52' }}>Products</h3>
+                                    <p className="text-center leading-relaxed text-base" style={{ color: '#60697b' }}>
                                         Seamless AI agents for all verticals. Plug in and deliver value from day one.
                                     </p>
                                 </div>
@@ -239,8 +256,8 @@ export default function HomePage() {
                                     <div className="w-20 h-20 bg-gradient-to-br from-bright-pink to-pink-400 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                                         <Users className="w-10 h-10 text-white" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center group-hover:text-bright-pink transition-colors">Services</h3>
-                                    <p className="text-gray-600 text-center leading-relaxed text-base">
+                                    <h3 className="text-2xl font-bold mb-6 text-center group-hover:text-bright-pink transition-colors" style={{ color: '#343f52' }}>Services</h3>
+                                    <p className="text-center leading-relaxed text-base" style={{ color: '#60697b' }}>
                                         Strategy, advisory, and tailored integration to embed AI into your workflows.
                                     </p>
                                 </div>
@@ -250,8 +267,8 @@ export default function HomePage() {
                                     <div className="w-20 h-20 bg-gradient-to-br from-bright-pink to-pink-400 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                                         <CheckCircle className="w-10 h-10 text-white" />
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center group-hover:text-bright-pink transition-colors">Outcomes</h3>
-                                    <p className="text-gray-600 text-center leading-relaxed text-base">
+                                    <h3 className="text-2xl font-bold mb-6 text-center group-hover:text-bright-pink transition-colors" style={{ color: '#343f52' }}>Outcomes</h3>
+                                    <p className="text-center leading-relaxed text-base" style={{ color: '#60697b' }}>
                                         Faster time to value, measurable ROI, and a foundation for scaling enterprise AI.
                                     </p>
                                 </div>
@@ -277,8 +294,8 @@ export default function HomePage() {
                 <div className="section-container section-padding relative z-10">
                     <div className="text-center mb-20">
 
-                        <h2 className="text-4xl lg:text-5xl font-bold text-dark-gray mb-6">Meet Your AI Workforce</h2>
-                        <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                        <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#343f52' }}>Meet Your AI Workforce</h2>
+                        <p className="text-xl max-w-4xl mx-auto" style={{ color: '#60697b' }}>
                             Specialized AI agents designed to seamlessly integrate into your enterprise workflows and drive unparalleled efficiency.
                         </p>
                     </div>
@@ -292,8 +309,8 @@ export default function HomePage() {
                                 </div>
                             </div>
                             <div className="pt-6">
-                                <h3 className="text-xl font-bold text-dark-gray mb-4 text-left">Process Acceleration</h3>
-                                <p className="text-gray-600 text-sm mb-6 text-left leading-relaxed">
+                                <h3 className="text-xl font-bold mb-4 text-left" style={{ color: '#343f52' }}>Process Acceleration</h3>
+                                <p className="text-sm mb-6 text-left leading-relaxed" style={{ color: '#60697b' }}>
                                     Streamline your workflows with intelligent automation and process optimization tools.
                                 </p>
                                 <div className="space-y-4">
@@ -341,8 +358,8 @@ export default function HomePage() {
                                 </div>
                             </div>
                             <div className="pt-6">
-                                <h3 className="text-xl font-bold text-dark-gray mb-4 text-left">Knowledge & Training</h3>
-                                <p className="text-gray-600 text-sm mb-6 text-left leading-relaxed">
+                                <h3 className="text-xl font-bold mb-4 text-left" style={{ color: '#343f52' }}>Knowledge & Training</h3>
+                                <p className="text-sm mb-6 text-left leading-relaxed" style={{ color: '#60697b' }}>
                                     Empower your team with comprehensive learning and knowledge management solutions.
                                 </p>
                                 <div className="space-y-4">
@@ -382,8 +399,8 @@ export default function HomePage() {
                                 </div>
                             </div>
                             <div className="pt-6">
-                                <h3 className="text-xl font-bold text-dark-gray mb-4 text-left">Code & Technical</h3>
-                                <p className="text-gray-600 text-sm mb-6 text-left leading-relaxed">
+                                <h3 className="text-xl font-bold mb-4 text-left" style={{ color: '#343f52' }}>Code & Technical</h3>
+                                <p className="text-sm mb-6 text-left leading-relaxed" style={{ color: '#60697b' }}>
                                     Enhance your development workflow with intelligent coding and technical support tools.
                                 </p>
                                 <div className="space-y-4">
@@ -441,8 +458,8 @@ export default function HomePage() {
 
                 <div className="section-container section-padding relative z-10">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Upcoming Events</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#343f52' }}>Upcoming Events</h2>
+                        <p className="text-xl max-w-3xl mx-auto" style={{ color: '#60697b' }}>
                             Join us at industry-leading events and discover how AI agents are transforming enterprise operations.
                         </p>
                     </div>
@@ -454,32 +471,21 @@ export default function HomePage() {
                                 {/* Event Image */}
                                 <div className="relative h-48 bg-gradient-to-br from-core-purple to-muted-purple overflow-hidden">
                                     <div className="absolute inset-0 bg-black/20"></div>
-                                    <div className="absolute top-4 right-4">
-                                        <div className="inline-flex items-center px-3 py-1 bg-bright-pink/90 text-white text-sm font-semibold rounded-full">
-                                            <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
-                                            Virtual Event
-                                        </div>
-                                    </div>
-                                    <div className="absolute bottom-4 left-4">
-                                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                                            <span className="text-white font-bold text-xl">MS</span>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div className="p-6">
                                     <div className="text-center mb-4">
-                                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-core-purple transition-colors mb-2">
+                                        <h3 className="text-xl font-bold group-hover:text-core-purple transition-colors mb-2" style={{ color: '#343f52' }}>
                                             Reimagine Dynamics Implementations
                                         </h3>
                                     </div>
 
                                     <div className="flex flex-col items-center gap-3 mb-6">
-                                        <div className="flex items-center gap-2 text-gray-600">
+                                        <div className="flex items-center gap-2" style={{ color: '#60697b' }}>
                                             <Building2 className="w-4 h-4" />
                                             <span className="text-sm font-medium">Microsoft HQ</span>
                                         </div>
-                                        <div className="flex items-center gap-2 text-gray-600">
+                                        <div className="flex items-center gap-2" style={{ color: '#60697b' }}>
                                             <Calendar className="w-4 h-4" />
                                             <span className="text-sm">Oct 30, 2025</span>
                                         </div>
@@ -497,32 +503,22 @@ export default function HomePage() {
                                 {/* Event Image */}
                                 <div className="relative h-48 bg-gradient-to-br from-core-purple to-muted-purple overflow-hidden">
                                     <div className="absolute inset-0 bg-black/20"></div>
-                                    <div className="absolute top-4 right-4">
-                                        <div className="inline-flex items-center px-3 py-1 bg-bright-pink/90 text-white text-sm font-semibold rounded-full">
-                                            <div className="w-2 h-2 bg-white rounded-full mr-2"></div>
-                                            Conference
-                                        </div>
-                                    </div>
-                                    <div className="absolute bottom-4 left-4">
-                                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                                            <span className="text-white font-bold text-xl">G</span>
-                                        </div>
-                                    </div>
+
                                 </div>
 
                                 <div className="p-6">
                                     <div className="text-center mb-4">
-                                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-core-purple transition-colors mb-2">
-                                            Gartner IT Symposium
+                                        <h3 className="text-xl font-bold group-hover:text-core-purple transition-colors mb-2" style={{ color: '#343f52' }}>
+                                            Gartner<br />IT Symposium
                                         </h3>
                                     </div>
 
                                     <div className="flex flex-col items-center gap-3 mb-6">
-                                        <div className="flex items-center gap-2 text-gray-600">
+                                        <div className="flex items-center gap-2" style={{ color: '#60697b' }}>
                                             <Building2 className="w-4 h-4" />
                                             <span className="text-sm font-medium">Barcelona</span>
                                         </div>
-                                        <div className="flex items-center gap-2 text-gray-600">
+                                        <div className="flex items-center gap-2" style={{ color: '#60697b' }}>
                                             <Calendar className="w-4 h-4" />
                                             <span className="text-sm">Nov 10-13, 2025</span>
                                         </div>
@@ -551,7 +547,7 @@ export default function HomePage() {
                 <div className="section-container section-padding relative z-10">
 
                     {/* CTA Block */}
-                    <div className="bg-gradient-to-br from-core-purple via-purple-600 to-bright-pink rounded-3xl p-12 relative overflow-hidden shadow-2xl">
+                    <div className="bg-gradient-to-br from-core-purple via-muted-purple to-bright-pink rounded-3xl p-12 relative overflow-hidden shadow-2xl">
                         {/* Background decorative elements */}
                         <div className="absolute inset-0 overflow-hidden">
                             <div className="absolute top-4 right-4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
@@ -561,7 +557,7 @@ export default function HomePage() {
 
                         <div className="relative z-10 text-center">
                             <div className="flex justify-center mb-8">
-                                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                                <div className="w-20 h-20 bg-gradient-to-br from-bright-pink to-pink-400 rounded-2xl flex items-center justify-center shadow-lg">
                                     <Bot className="w-10 h-10 text-white" />
                                 </div>
                             </div>
