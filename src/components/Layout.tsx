@@ -19,10 +19,8 @@ export default function Layout() {
                         <div className="flex items-center justify-center gap-2 text-sm">
                             <span className="font-medium">Proud Exhibitor at #GartnerSYM | Meet us at the Gartner IT Symposium, Barcelona | 10-13 November, 2025 |</span>
                             <a
-                                href="https://www.gartner.com/en/conferences/emea/symposium-spain/exhibitors"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-orange-400 underline hover:text-orange-300 transition-colors duration-200"
+                                href="/events"
+                                className="text-orange-400 underline hover:text-orange-300 transition-colors duration-200 cursor-pointer"
                             >
                                 Learn More
                             </a>
