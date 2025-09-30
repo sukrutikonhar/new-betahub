@@ -63,18 +63,11 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50">
       {/* Hero Section */}
       <section className="w-full relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #E8CAF7 0%, #F0D7F9 20%, #F8E4FC 40%, #FCF0FF 60%, #FEF8FF 80%, #FFFFFF 100%)' }}>
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-10 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse" style={{ background: 'linear-gradient(135deg, #E8CAF7 0%, #A96BF5 50%, #8116EC 100%)', opacity: 0.2 }}></div>
-          <div className="absolute top-32 left-10 w-80 h-80 rounded-full blur-2xl" style={{ background: 'linear-gradient(135deg, #A96BF5 0%, #DD2BC2 50%, #E8CAF7 100%)', opacity: 0.15 }}></div>
-          <div className="absolute bottom-20 right-1/4 w-72 h-72 rounded-full blur-3xl" style={{ background: 'linear-gradient(135deg, #8116EC 0%, #A96BF5 50%, #E8CAF7 100%)', opacity: 0.1 }}></div>
-        </div>
-
-        <div className="section-container section-padding relative z-10">
+        <div className="section-container section-padding">
           <div className="text-center">
             <h1 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              <span className="text-gray-800">About</span>
-              <span className="bg-gradient-to-r from-#A96BF5 via-#8116EC to-#DD2BC2 bg-clip-text text-transparent" style={{ background: 'linear-gradient(135deg, #A96BF5 0%, #8116EC 50%, #DD2BC2 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}> BetaHub</span>
+              <span style={{ color: '#343f52' }}>About</span>
+              <span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent" style={{ background: 'linear-gradient(135deg, #743CAC 0%, #5a2a8a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}> BetaHub</span>
             </h1>
 
             <p className="text-xl lg:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
@@ -114,7 +107,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {values.map((value, index) => (
               <div key={index} className="group text-center p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-purple-100">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 text-white">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#6B46C1', color: 'white' }}>
                   {value.icon}
                 </div>
                 <h3 className="text-2xl font-bold mb-4" style={{ color: '#343f52' }}>
@@ -167,24 +160,66 @@ export default function AboutPage() {
       </section>
 
       {/* Our Vision & Promise Section */}
-      <section className="w-full relative overflow-hidden bg-white">
-        <div className="section-container section-padding">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-8" style={{ color: '#343f52' }}>
-                Our Vision
-              </h2>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                To make AI agents the backbone of every enterprise - agents that eliminate the monotonous, scale intelligent workflows, and create compounding advantages over time.
-              </p>
+      <section className="w-full relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-purple-50">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl opacity-20" style={{ background: 'linear-gradient(135deg, #6B46C1 0%, #DD2BC2 100%)' }}></div>
+          <div className="absolute bottom-20 left-20 w-48 h-48 rounded-full blur-2xl opacity-15" style={{ background: 'linear-gradient(135deg, #DD2BC2 0%, #6B46C1 100%)' }}></div>
+        </div>
+
+        <div className="section-container section-padding relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#343f52' }}>
+              Our Foundation
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The principles that guide everything we do
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Our Vision Card */}
+            <div className="group relative">
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                {/* Card gradient overlay */}
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl opacity-10" style={{ background: 'linear-gradient(135deg, #6B46C1 0%, #DD2BC2 100%)' }}></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg" style={{ backgroundColor: '#6B46C1' }}>
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl lg:text-3xl font-bold" style={{ color: '#343f52' }}>
+                      Our Vision
+                    </h3>
+                  </div>
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    To make AI agents the backbone of every enterprise - agents that eliminate the monotonous, scale intelligent workflows, and create compounding advantages over time.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-8" style={{ color: '#343f52' }}>
-                Our Promise
-              </h2>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                We're not just building AI agents. We're building successful AI agentic systems that make enterprises unstoppable in the long haul.
-              </p>
+
+            {/* Our Promise Card */}
+            <div className="group relative">
+              <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
+                {/* Card gradient overlay */}
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl opacity-10" style={{ background: 'linear-gradient(135deg, #DD2BC2 0%, #6B46C1 100%)' }}></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg" style={{ backgroundColor: '#6B46C1' }}>
+                      <Bot className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl lg:text-3xl font-bold" style={{ color: '#343f52' }}>
+                      Our Promise
+                    </h3>
+                  </div>
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    We're not just building AI agents. We're building successful AI agentic systems that make enterprises unstoppable in the long haul.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

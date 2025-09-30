@@ -250,12 +250,12 @@ export default function HomePage() {
                         <div className="lg:col-span-5 space-y-6 pl-8 lg:pl-12">
                             {/* Feature 1 */}
                             <div className="group p-6 rounded-3xl bg-white transition-all duration-300 hover:-translate-y-1" style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.35) 0px 5px 15px'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}>
-                                <div className="flex items-start gap-4">
+                                <div className="flex items-center gap-4">
                                     <div className="w-14 h-14 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                         <Building2 className="w-7 h-7 text-bright-pink" />
                                     </div>
                                     <div>
-                                        <p className="text-xl font-normal text-dark-gray mb-2 leading-tight group-hover:text-bright-pink transition-colors">
+                                        <p className="text-xl font-normal text-dark-gray leading-tight group-hover:text-bright-pink transition-colors">
                                             Proven expertise in enterprise transformation
                                         </p>
                                     </div>
@@ -264,12 +264,12 @@ export default function HomePage() {
 
                             {/* Feature 2 */}
                             <div className="group p-6 rounded-3xl bg-white transition-all duration-300 hover:-translate-y-1" style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.35) 0px 5px 15px'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}>
-                                <div className="flex items-start gap-4">
+                                <div className="flex items-center gap-4">
                                     <div className="w-14 h-14 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                         <Rocket className="w-7 h-7 text-bright-pink" />
                                     </div>
                                     <div>
-                                        <p className="text-xl font-normal text-dark-gray pe-12 mb-2 leading-tight group-hover:text-bright-pink transition-colors">
+                                        <p className="text-xl font-normal text-dark-gray pe-12 leading-tight group-hover:text-bright-pink transition-colors">
                                             Trusted tools that deliver quick wins
                                         </p>
                                     </div>
@@ -278,12 +278,12 @@ export default function HomePage() {
 
                             {/* Feature 3 */}
                             <div className="group p-6 rounded-3xl bg-white transition-all duration-300 hover:-translate-y-1" style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.35) 0px 5px 15px'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}>
-                                <div className="flex items-start gap-4">
+                                <div className="flex items-center gap-4">
                                     <div className="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                         <Target className="w-7 h-7 text-bright-pink" />
                                     </div>
                                     <div>
-                                        <p className="text-xl font-normal text-dark-gray mb-2 leading-tight group-hover:text-bright-pink transition-colors">
+                                        <p className="text-xl font-normal text-dark-gray leading-tight group-hover:text-bright-pink transition-colors">
                                             Scalable solutions designed for long-term growth
                                         </p>
                                     </div>
