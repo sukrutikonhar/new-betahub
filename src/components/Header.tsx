@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ROUTES, ROUTE_LABELS } from "../router/routes";
 import { useState, useEffect } from "react";
 
-export default function Header() {
+export default function Header({ bannerVisible = false }: { bannerVisible?: boolean }) {
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
     const isHomePage = location.pathname === ROUTES.HOME;
@@ -15,10 +15,9 @@ export default function Header() {
         { path: ROUTES.HOME, label: ROUTE_LABELS[ROUTES.HOME] },
         { path: ROUTES.ABOUT, label: ROUTE_LABELS[ROUTES.ABOUT] },
         { path: ROUTES.AGENTS, label: ROUTE_LABELS[ROUTES.AGENTS] },
-        { path: ROUTES.SERVICES, label: ROUTE_LABELS[ROUTES.SERVICES] },
         { path: ROUTES.PRICING, label: ROUTE_LABELS[ROUTES.PRICING] },
-        { path: ROUTES.RESOURCES, label: ROUTE_LABELS[ROUTES.RESOURCES] },
-        { path: ROUTES.GET_STARTED, label: ROUTE_LABELS[ROUTES.GET_STARTED] },
+        { path: ROUTES.EVENTS, label: ROUTE_LABELS[ROUTES.EVENTS] },
+        { path: ROUTES.CONTACT, label: ROUTE_LABELS[ROUTES.CONTACT] },
     ];
 
     useEffect(() => {
@@ -32,7 +31,14 @@ export default function Header() {
 
     // Determine header styling based on page and scroll state
     const getHeaderClasses = () => {
-        let baseClasses = "w-full fixed top-0 left-0 right-0 z-50 transition-all duration-300";
+        let baseClasses = "w-full fixed left-0 right-0 z-50 transition-all duration-300";
+
+        // Adjust top position based on banner visibility and scroll state
+        if (isHomePage && bannerVisible && !isScrolled) {
+            baseClasses += " top-16"; // 64px to account for banner height
+        } else {
+            baseClasses += " top-0"; // Normal position or sticky position
+        }
 
         if (isHomePage) {
             if (isScrolled) {

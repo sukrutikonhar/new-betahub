@@ -1,25 +1,19 @@
 import { Link } from "react-router-dom";
 import { ROUTES, ROUTE_LABELS } from "../router/routes";
-import { Mail, Phone, MapPin, ArrowRight, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Linkedin, Send } from "lucide-react";
+import { useState } from "react";
 
 export default function Footer() {
-    const footerLinks = [
-        { path: ROUTES.HOME, label: ROUTE_LABELS[ROUTES.HOME] },
+    const [email, setEmail] = useState("");
+    const [isSubscribed, setIsSubscribed] = useState(false);
+
+    const quickLinks = [
         { path: ROUTES.ABOUT, label: ROUTE_LABELS[ROUTES.ABOUT] },
         { path: ROUTES.AGENTS, label: ROUTE_LABELS[ROUTES.AGENTS] },
-        { path: ROUTES.SERVICES, label: ROUTE_LABELS[ROUTES.SERVICES] },
         { path: ROUTES.PRICING, label: ROUTE_LABELS[ROUTES.PRICING] },
-        { path: ROUTES.RESOURCES, label: ROUTE_LABELS[ROUTES.RESOURCES] },
-        { path: ROUTES.GET_STARTED, label: ROUTE_LABELS[ROUTES.GET_STARTED] },
+        { path: ROUTES.EVENTS, label: ROUTE_LABELS[ROUTES.EVENTS] },
+        { path: ROUTES.CONTACT, label: ROUTE_LABELS[ROUTES.CONTACT] },
     ];
-
-    const companyLinks = [
-        { label: "About Us", path: ROUTES.ABOUT },
-        { label: "Our Team", path: "#" },
-        { label: "Careers", path: "#" },
-        { label: "Press", path: "#" },
-    ];
-
 
     const legalLinks = [
         { label: "Privacy Policy", path: "#" },
@@ -27,6 +21,16 @@ export default function Footer() {
         { label: "Cookie Policy", path: "#" },
         { label: "GDPR", path: "#" },
     ];
+
+    const handleNewsletterSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (email) {
+            setIsSubscribed(true);
+            setEmail("");
+            // Here you would typically send the email to your backend
+            setTimeout(() => setIsSubscribed(false), 3000);
+        }
+    };
 
     return (
         <footer className="w-full relative overflow-hidden" style={{ background: '#1e1e1e' }}>
@@ -39,9 +43,9 @@ export default function Footer() {
 
             <div className="section-container section-padding relative z-10">
                 {/* Main Footer Content */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
-                    {/* Company Info - Takes 5 columns */}
-                    <div className="lg:col-span-5">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+                    {/* Company Info - Takes 4 columns */}
+                    <div className="lg:col-span-4">
                         <div className="mb-6">
                             <img
                                 src="/logos/logo-white.webp"
@@ -72,26 +76,8 @@ export default function Footer() {
                     <div className="lg:col-span-2">
                         <h4 className="text-xl font-bold text-white mb-6" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Quick Links</h4>
                         <ul className="space-y-4">
-                            {footerLinks.slice(0, 4).map(({ path, label }) => (
+                            {quickLinks.map(({ path, label }) => (
                                 <li key={path}>
-                                    <Link
-                                        to={path}
-                                        className="text-gray-300 hover:text-bright-pink transition-colors duration-300 flex items-center gap-2 group"
-                                    >
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        {label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Company - Takes 2 columns */}
-                    <div className="lg:col-span-2">
-                        <h4 className="text-xl font-bold text-white mb-6" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Company</h4>
-                        <ul className="space-y-4">
-                            {companyLinks.map(({ path, label }) => (
-                                <li key={label}>
                                     <Link
                                         to={path}
                                         className="text-gray-300 hover:text-bright-pink transition-colors duration-300 flex items-center gap-2 group"
@@ -131,13 +117,48 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Newsletter Subscription - Takes 3 columns */}
+                    <div className="lg:col-span-3">
+                        <h4 className="text-xl font-bold text-white mb-6" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Stay Updated</h4>
+                        <p className="text-white/90 mb-6 text-sm leading-relaxed" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
+                            Subscribe to our newsletter for the latest AI insights, product updates, and industry trends.
+                        </p>
+
+                        {isSubscribed ? (
+                            <div className="bg-green-500/20 border border-green-500/30 rounded-lg p-4 text-center">
+                                <p className="text-green-400 font-medium">Thank you for subscribing!</p>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleNewsletterSubmit} className="relative">
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Enter your email id"
+                                    className="w-full px-4 py-3 pr-12 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-bright-pink focus:border-transparent"
+                                    required
+                                />
+                                <button
+                                    type="submit"
+                                    className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-gradient-to-r from-bright-pink to-core-purple text-white rounded-md hover:shadow-lg transition-all duration-300 flex items-center justify-center group"
+                                >
+                                    <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                                </button>
+                            </form>
+                        )}
+
+                        <p className="text-white/70 text-xs mt-3" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
+                            We don't spam. Unsubscribe any time.
+                        </p>
+                    </div>
                 </div>
 
                 {/* Bottom Section */}
                 <div className="border-t border-white/20 pt-8">
                     <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
                         <div className="text-gray-400 text-center lg:text-left">
-                            <p>&copy; 2024 BetaHub. All rights reserved.</p>
+                            <p>&copy; 2025 BetaHub. All rights reserved.</p>
                         </div>
 
                         <div className="flex flex-wrap justify-center lg:justify-end gap-6 text-sm">

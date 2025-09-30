@@ -3,10 +3,9 @@ import Layout from '../components/Layout';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import AgentsPage from '../pages/AgentsPage';
-import ServicesPage from '../pages/ServicesPage';
 import PricingPage from '../pages/PricingPage';
-import ResourcesPage from '../pages/ResourcesPage';
-import GetStartedPage from '../pages/GetStartedPage';
+import ContactPage from '../pages/ContactPage';
+import EventsPage from '../pages/EventsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 export const appRouter = createBrowserRouter([
@@ -28,20 +27,16 @@ export const appRouter = createBrowserRouter([
         element: <AgentsPage />,
       },
       {
-        path: 'services',
-        element: <ServicesPage />,
-      },
-      {
         path: 'pricing',
         element: <PricingPage />,
       },
       {
-        path: 'resources',
-        element: <ResourcesPage />,
+        path: 'contact',
+        element: <ContactPage />,
       },
       {
-        path: 'get-started',
-        element: <GetStartedPage />,
+        path: 'events',
+        element: <EventsPage />,
       },
     ],
   },

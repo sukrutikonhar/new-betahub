@@ -3,10 +3,9 @@ export const ROUTES = {
   HOME: "/",
   ABOUT: "/about",
   AGENTS: "/agents",
-  SERVICES: "/services",
   PRICING: "/pricing",
-  RESOURCES: "/resources",
-  GET_STARTED: "/get-started",
+  CONTACT: "/contact",
+  EVENTS: "/events",
 } as const;
 
 // Route labels for navigation
@@ -14,10 +13,9 @@ export const ROUTE_LABELS = {
   [ROUTES.HOME]: "Home",
   [ROUTES.ABOUT]: "About",
   [ROUTES.AGENTS]: "Agents",
-  [ROUTES.SERVICES]: "Services",
   [ROUTES.PRICING]: "Pricing",
-  [ROUTES.RESOURCES]: "Resources",
-  [ROUTES.GET_STARTED]: "Get Started",
+  [ROUTES.CONTACT]: "Contact",
+  [ROUTES.EVENTS]: "Events",
 } as const;
 
 // Type for route keys
