@@ -1,8 +1,12 @@
 import { ArrowRight, Bot, Zap, Users, CheckCircle, Building2, Rocket, Target, Calendar } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import DemoForm from '../components/DemoForm';
 
 export default function HomePage() {
     const [activeCategory, setActiveCategory] = useState('process');
+    const [showDemoForm, setShowDemoForm] = useState(false);
+    const navigate = useNavigate();
 
     const agentCategories = {
         process: {
@@ -111,10 +115,16 @@ export default function HomePage() {
                                 With Betahub, enterprises get more than just AI Agents - they get trusted expertise to turn AI investments into ROI.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button className="bg-white text-purple-800 hover:bg-gray-100 px-8 py-2 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                                <button
+                                    onClick={() => setShowDemoForm(true)}
+                                    className="bg-white text-purple-800 hover:bg-gray-100 px-8 py-2 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                                >
                                     Book a Demo
                                 </button>
-                                <button className="border-2 border-white text-white hover:bg-white hover:text-purple-800 px-8 py-2 rounded-xl font-semibold transition-all duration-300">
+                                <button
+                                    onClick={() => navigate('/agents')}
+                                    className="border-2 border-white text-white hover:bg-white hover:text-purple-800 px-8 py-2 rounded-xl font-semibold transition-all duration-300 cursor-pointer"
+                                >
                                     Explore Agents
                                 </button>
                             </div>
@@ -159,7 +169,10 @@ export default function HomePage() {
                                         </div>
                                     </div>
 
-                                    <button className="w-full bg-white text-purple-800 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <button
+                                        onClick={() => navigate('/agents')}
+                                        className="w-full bg-white text-purple-800 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                                    >
                                         Try Now
                                     </button>
                                 </div>
@@ -425,7 +438,11 @@ export default function HomePage() {
 
                 {/* CTA Button */}
                 <div className="text-center pb-16">
-                    <button className="text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
+                    <button
+                        onClick={() => setShowDemoForm(true)}
+                        className="text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90 cursor-pointer"
+                        style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+                    >
                         Book a Demo
                     </button>
                 </div>
@@ -515,7 +532,11 @@ export default function HomePage() {
                                         </div>
                                     </div>
 
-                                    <button className="mx-auto text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
+                                    <button
+                                        onClick={() => navigate('/events')}
+                                        className="mx-auto text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90 cursor-pointer"
+                                        style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+                                    >
                                         Learn More
                                         <ArrowRight className="w-5 h-5" />
                                     </button>
@@ -566,13 +587,19 @@ export default function HomePage() {
                                 Build the agents your business needs. Betahub makes it simple to transform ideas into enterprise-ready automation.</p>
 
                             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-                                <button className="bg-white text-core-purple px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group">
+                                <button
+                                    onClick={() => navigate('/agents')}
+                                    className="bg-white text-core-purple px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group cursor-pointer"
+                                >
                                     <Bot className="w-6 h-6 group-hover:scale-110 transition-transform" />
                                     Start Building
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
 
-                                <button className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-core-purple transition-all duration-300 flex items-center gap-3 group">
+                                <button
+                                    onClick={() => navigate('/contact')}
+                                    className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-core-purple transition-all duration-300 flex items-center gap-3 group cursor-pointer"
+                                >
                                     <Users className="w-6 h-6 group-hover:scale-110 transition-transform" />
                                     Talk to Us
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -597,6 +624,9 @@ export default function HomePage() {
                     </div>
                 </div>
             </section >
+
+            {/* Demo Form Popup */}
+            <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
         </div >
     );
 }

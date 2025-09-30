@@ -1,5 +1,6 @@
-import { Mail, Phone, MapPin, Clock, ArrowRight, User, Building } from 'lucide-react';
+import { Mail, Phone, Clock, ArrowRight, User, Building } from 'lucide-react';
 import { useState } from 'react';
+import DemoForm from '../components/DemoForm';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export default function ContactPage() {
         acceptTerms: false
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [showDemoForm, setShowDemoForm] = useState(false);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value, type } = e.target;
@@ -77,7 +79,11 @@ export default function ContactPage() {
                             <p className="text-sm mb-6" style={{ color: '#60697b' }}>
                                 Provide your contact info and a sales representative will reach out to you shortly.
                             </p>
-                            <button className="w-full text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
+                            <button
+                                onClick={() => window.location.href = 'mailto:sales@betahub.com'}
+                                className="w-full text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90 cursor-pointer"
+                                style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+                            >
                                 Contact Sales
                             </button>
                         </div>
@@ -91,7 +97,10 @@ export default function ContactPage() {
                             <p className="text-sm mb-6" style={{ color: '#60697b' }}>
                                 Experience the many capabilities of BetaHub's AI agent platform in our product tour.
                             </p>
-                            <button className="w-full border-2 border-purple-300 text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-200 hover:text-white transition-all duration-300">
+                            <button
+                                onClick={() => window.location.href = '/agents'}
+                                className="w-full border-2 border-purple-300 text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-200 hover:text-white transition-all duration-300 cursor-pointer"
+                            >
                                 Watch Product Tour
                             </button>
                         </div>
@@ -105,7 +114,11 @@ export default function ContactPage() {
                             <p className="text-sm mb-6" style={{ color: '#60697b' }}>
                                 Schedule a personalized demo to learn more about BetaHub AI agents.
                             </p>
-                            <button className="w-full text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
+                            <button
+                                onClick={() => setShowDemoForm(true)}
+                                className="w-full text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90 cursor-pointer"
+                                style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+                            >
                                 Book a Demo
                             </button>
                         </div>
@@ -119,7 +132,10 @@ export default function ContactPage() {
                             <p className="text-sm mb-6" style={{ color: '#60697b' }}>
                                 Email our Support Team to request additional customizations or to resolve issues.
                             </p>
-                            <button className="w-full border-2 border-purple-300 text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-200 hover:text-white transition-all duration-300">
+                            <button
+                                onClick={() => window.location.href = 'mailto:support@betahub.com'}
+                                className="w-full border-2 border-purple-300 text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-200 hover:text-white transition-all duration-300 cursor-pointer"
+                            >
                                 Get Support
                             </button>
                         </div>
@@ -332,143 +348,6 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            {/* Our Offices Section */}
-            <section className="w-full relative overflow-hidden">
-                {/* Background decorative elements */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-20 right-20 w-72 h-72 bg-purple-100/30 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-20 left-20 w-80 h-80 bg-pink-100/30 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-100/20 rounded-full blur-3xl"></div>
-                </div>
-
-                <div className="section-container section-padding relative z-10">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#343f52' }}>
-                            Our Global Presence
-                        </h2>
-                        <p className="text-xl max-w-3xl mx-auto" style={{ color: '#60697b' }}>
-                            BetaHub is a global team, with offices all around the world — from San Francisco to Bangalore
-                        </p>
-                    </div>
-
-                    {/* Office Locations Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* San Francisco, CA | HQ */}
-                        <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-600"></div>
-                            <div className="w-16 h-16 bg-gradient-to-br from-purple-50 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <MapPin className="w-8 h-8 text-purple-600" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-purple-600 transition-colors duration-200" style={{ color: '#343f52' }}>
-                                San Francisco, CA | HQ
-                            </h3>
-                            <p className="text-sm mb-4" style={{ color: '#60697b' }}>
-                                221 Main Street<br />
-                                Suite 780<br />
-                                San Francisco, CA 94105
-                            </p>
-                            <div className="text-xs font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full inline-block">
-                                Headquarters
-                            </div>
-                        </div>
-
-                        {/* New York City, NY */}
-                        <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-pink-600"></div>
-                            <div className="w-16 h-16 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <MapPin className="w-8 h-8 text-pink-600" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-pink-600 transition-colors duration-200" style={{ color: '#343f52' }}>
-                                New York City, NY
-                            </h3>
-                            <p className="text-sm mb-4" style={{ color: '#60697b' }}>
-                                915 Broadway, Suite 503<br />
-                                New York, NY 10010
-                            </p>
-                            <div className="text-xs font-semibold text-pink-600 bg-pink-100 px-3 py-1 rounded-full inline-block">
-                                East Coast
-                            </div>
-                        </div>
-
-                        {/* Austin, TX */}
-                        <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-600"></div>
-                            <div className="w-16 h-16 bg-gradient-to-br from-purple-50 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <MapPin className="w-8 h-8 text-purple-600" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-purple-600 transition-colors duration-200" style={{ color: '#343f52' }}>
-                                Austin, TX
-                            </h3>
-                            <p className="text-sm mb-4" style={{ color: '#60697b' }}>
-                                515 Congress Ave<br />
-                                Suite 1212<br />
-                                Austin, TX 78701
-                            </p>
-                            <div className="text-xs font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full inline-block">
-                                Tech Hub
-                            </div>
-                        </div>
-
-                        {/* Toronto, ON, Canada */}
-                        <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-pink-600"></div>
-                            <div className="w-16 h-16 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <MapPin className="w-8 h-8 text-pink-600" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-pink-600 transition-colors duration-200" style={{ color: '#343f52' }}>
-                                Toronto, ON, Canada
-                            </h3>
-                            <p className="text-sm mb-4" style={{ color: '#60697b' }}>
-                                129 Spadina Ave<br />
-                                Suite 404<br />
-                                Toronto, ON M5V 2L3
-                            </p>
-                            <div className="text-xs font-semibold text-pink-600 bg-pink-100 px-3 py-1 rounded-full inline-block">
-                                North America
-                            </div>
-                        </div>
-
-                        {/* Bangalore, India */}
-                        <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-purple-600"></div>
-                            <div className="w-16 h-16 bg-gradient-to-br from-purple-50 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <MapPin className="w-8 h-8 text-purple-600" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-purple-600 transition-colors duration-200" style={{ color: '#343f52' }}>
-                                Bangalore, India
-                            </h3>
-                            <p className="text-sm mb-4" style={{ color: '#60697b' }}>
-                                Pebble Beach<br />
-                                Embassy Golf Links Business Park<br />
-                                Bengaluru, Karnataka 560071
-                            </p>
-                            <div className="text-xs font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full inline-block">
-                                Asia Pacific
-                            </div>
-                        </div>
-
-                        {/* London, UK */}
-                        <div className="group bg-white rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 to-pink-600"></div>
-                            <div className="w-16 h-16 bg-gradient-to-br from-pink-200 to-pink-300 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <MapPin className="w-8 h-8 text-pink-600" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-pink-600 transition-colors duration-200" style={{ color: '#343f52' }}>
-                                London, UK
-                            </h3>
-                            <p className="text-sm mb-4" style={{ color: '#60697b' }}>
-                                123 Business Street<br />
-                                Suite 200<br />
-                                London, UK SW1A 1AA
-                            </p>
-                            <div className="text-xs font-semibold text-pink-600 bg-pink-100 px-3 py-1 rounded-full inline-block">
-                                Europe
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* CTA Section */}
             <section className="w-full relative overflow-hidden bg-white">
                 <div className="section-container section-padding pt-0">
@@ -492,11 +371,17 @@ export default function ContactPage() {
 
                                 {/* Enhanced CTA Buttons */}
                                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                                    <button className="group bg-white text-purple-700 px-10 py-3 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 hover:bg-purple-50 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center">
+                                    <button
+                                        onClick={() => setShowDemoForm(true)}
+                                        className="group bg-white text-purple-700 px-10 py-3 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 hover:bg-purple-50 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
+                                    >
                                         <span>Start Free Trial</span>
                                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                                     </button>
-                                    <button className="group border-2 border-white text-white px-10 py-3 rounded-xl font-semibold hover:bg-white hover:text-purple-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center">
+                                    <button
+                                        onClick={() => window.location.href = 'mailto:sales@betahub.com'}
+                                        className="group border-2 border-white text-white px-10 py-3 rounded-xl font-semibold hover:bg-white hover:text-purple-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
+                                    >
                                         <span>Contact Sales</span>
                                         <Phone className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                                     </button>
@@ -506,6 +391,9 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Demo Form Popup */}
+            <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
         </div>
     );
 }

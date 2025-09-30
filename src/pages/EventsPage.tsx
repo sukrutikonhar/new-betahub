@@ -32,35 +32,35 @@ const EventsPage: React.FC = () => {
             name: "Manish Singh",
             role: "Founder & CEO",
             expertise: "AI Strategy & Leadership",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+            image: "/src/assets/team/manish.webp",
             linkedin: "#"
         },
         {
             name: "Morten Vinge-Maigaard",
             role: "Head of Sales",
             expertise: "Enterprise Solutions",
-            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+            image: "/src/assets/team/morten.webp",
             linkedin: "#"
         },
         {
             name: "Kruthik Ramachandar",
             role: "Sales Lead",
             expertise: "Client Relations",
-            image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+            image: "/src/assets/team/kruthik.webp",
             linkedin: "#"
         },
         {
             name: "Paras Lokhande",
             role: "Solutions Specialist",
             expertise: "Technical Implementation",
-            image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+            image: "/src/assets/team/paras.webp",
             linkedin: "#"
         },
         {
             name: "Susanne Gallo Ravn",
             role: "Sales Director",
             expertise: "Market Development",
-            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+            image: "/src/assets/team/Sussane.webp",
             linkedin: "#"
         }
     ];
@@ -116,12 +116,22 @@ const EventsPage: React.FC = () => {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button className="group text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center gap-3 justify-center shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
+                                <button
+                                    onClick={() => window.location.href = 'mailto:events@betahub.com'}
+                                    className="group text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center gap-3 justify-center shadow-lg hover:opacity-90 cursor-pointer"
+                                    style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+                                >
                                     <Calendar className="w-5 h-5" />
                                     <span>Book a Meeting</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                                 </button>
-                                <button className="group border-2 px-8 py-4 rounded-2xl font-semibold hover:text-white transition-all duration-300 flex items-center gap-3 justify-center" style={{ borderColor: '#3c1470', color: '#3c1470' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
+                                <button
+                                    onClick={() => window.location.href = '/contact'}
+                                    className="group border-2 px-8 py-4 rounded-2xl font-semibold hover:text-white transition-all duration-300 flex items-center gap-3 justify-center cursor-pointer"
+                                    style={{ borderColor: '#3c1470', color: '#3c1470' }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                                >
                                     <Building className="w-5 h-5" />
                                     <span>Visit Our Booth</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
@@ -282,11 +292,21 @@ const EventsPage: React.FC = () => {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4">
-                                    <button className="text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
+                                    <button
+                                        onClick={() => window.location.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gartner%20IT%20Symposium&dates=20251110T090000Z/20251113T170000Z&details=Join%20us%20at%20Gartner%20IT%20Symposium%20in%20Barcelona&location=Fira%20Barcelona'}
+                                        className="text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90 cursor-pointer"
+                                        style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+                                    >
                                         <Calendar className="w-5 h-5" />
                                         Add to Calendar
                                     </button>
-                                    <button className="border-2 px-8 py-4 rounded-2xl font-semibold hover:text-white transition-all duration-300 flex items-center justify-center gap-2" style={{ borderColor: '#3c1470', color: '#3c1470' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
+                                    <button
+                                        onClick={() => window.location.href = 'https://www.gartner.com/en/conferences/emea/symposium'}
+                                        className="border-2 px-8 py-4 rounded-2xl font-semibold hover:text-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                                        style={{ borderColor: '#3c1470', color: '#3c1470' }}
+                                        onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; }}
+                                        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                                    >
                                         <ExternalLink className="w-5 h-5" />
                                         Learn More
                                     </button>

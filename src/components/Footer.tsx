@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ROUTES, ROUTE_LABELS } from "../router/routes";
-import { Mail, Phone, MapPin, ArrowRight, Linkedin, Send } from "lucide-react";
+import { Mail, ArrowRight, Linkedin, Send } from "lucide-react";
 import { useState } from "react";
 
 export default function Footer() {
@@ -93,21 +93,6 @@ export default function Footer() {
                     <div className="lg:col-span-3">
                         <h4 className="text-xl font-bold text-white mb-6" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Get in Touch</h4>
                         <div className="space-y-4">
-                            <div className="flex items-start gap-3">
-                                <MapPin className="w-5 h-5 text-bright-pink mt-1 flex-shrink-0" />
-                                <div>
-                                    <p className="text-white/90" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>123 Innovation Street</p>
-                                    <p className="text-white/90" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>Tech City, TC 12345</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-3">
-                                <Phone className="w-5 h-5 text-bright-pink flex-shrink-0" />
-                                <a href="tel:+15551234567" className="text-white/90 hover:text-bright-pink transition-colors" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>
-                                    +1 (555) 123-4567
-                                </a>
-                            </div>
-
                             <div className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-bright-pink flex-shrink-0" />
                                 <a href="mailto:info@betahub.ai" className="text-white/90 hover:text-bright-pink transition-colors" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>

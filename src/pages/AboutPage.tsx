@@ -1,42 +1,27 @@
-import { ArrowRight, Bot, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight, Bot, Target, TrendingUp, Linkedin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import DemoForm from '../components/DemoForm';
 
 export default function AboutPage() {
+  const navigate = useNavigate();
+  const [showDemoForm, setShowDemoForm] = useState(false);
   const teamMembers = [
     {
-      name: "Sarah Chen",
-      role: "CEO & Co-Founder",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
-      expertise: "AI Strategy & Enterprise Leadership"
+      name: "Manish Singh",
+      role: "Founder",
+      image: "https://arreglio.com/images/team/manish.webp",
+      linkedin: "https://www.linkedin.com/in/manish-singh-753b1811/",
+      description: "Manish is a seasoned technology leader and co-founder of Beta Hub, known for his Microsoft expertise and leadership par excellence. With a career spanning global enterprises like Scania, KPMG, and Microsoft's partner ecosystem, he has led large-scale Dynamics 365 implementations, built Centers of Excellence, and spearheaded data-driven transformation across industries. A passionate advocate for AI-driven innovation, Manish co-founded Beta Hub to integrate cutting-edge AI into solving real business problems, transforming enterprise operations, accelerating digital adoption, and creating measurable impact. His leadership combines strategic vision, deep domain expertise, and relentless passion for AI, making him a driving force behind Beta Hub's mission to reshape the future of enterprise technology.",
+      expertise: "Enterprise Leadership & AI Innovation"
     },
     {
-      name: "Marcus Rodriguez",
-      role: "CTO & Co-Founder",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      expertise: "Multi-Agent Systems & Platform Architecture"
-    },
-    {
-      name: "Dr. Emily Watson",
-      role: "Head of AI Research",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      expertise: "Machine Learning & Agent Intelligence"
-    },
-    {
-      name: "James Park",
-      role: "VP of Enterprise Solutions",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      expertise: "Enterprise Implementation & Customer Success"
-    },
-    {
-      name: "Lisa Thompson",
-      role: "Head of Product",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&crop=face",
-      expertise: "Product Strategy & User Experience"
-    },
-    {
-      name: "David Kim",
-      role: "Lead AI Engineer",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
-      expertise: "Agent Development & System Integration"
+      name: "Sudhie Siddautam",
+      role: "Co-Founder",
+      image: "https://arreglio.com/images/team/sudhie.webp",
+      linkedin: "https://www.linkedin.com/in/sudhiesiddautam/",
+      description: "Sudhiendra is a visionary technology entrepreneur and co-founder of Beta Hub, where he is building the future of enterprise AI with autonomous agent platforms. With a career spanning nearly two decades at Microsoft, Amazon, ecoPRISM, and Veridion AI, he has led the architecture of mission-critical systems from Azure Identity and Dynamics CRM Online to Amazon's last-mile delivery optimization - impacting millions worldwide. Renowned for his mastery of agentic AI, generative AI, and enterprise SaaS, Sudhiendra combines deep technical expertise with business acumen, turning advanced technology into measurable impact. At BetaHub, he is driving a bold vision: to create intelligent, scalable AI systems that redefine how enterprises transform, compete, and grow.",
+      expertise: "Agentic AI & Enterprise Architecture"
     }
   ];
 
@@ -124,35 +109,95 @@ export default function AboutPage() {
 
       {/* Meet the Team Section */}
       <section className="w-full relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-purple-50">
-        <div className="section-container section-padding">
-          <div className="text-center mb-16">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl opacity-10" style={{ background: 'linear-gradient(135deg, #E8CAF7 0%, #F0D7F9 100%)' }}></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full blur-2xl opacity-15" style={{ background: 'linear-gradient(135deg, #F8BBD9 0%, #EC89DD 100%)' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl opacity-8" style={{ background: 'linear-gradient(135deg, #D29DDA 0%, #A7439F 100%)' }}></div>
+        </div>
+
+        <div className="section-container section-padding relative z-10">
+          <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl font-bold mb-8" style={{ color: '#343f52' }}>
-              Meet the Team
+              Meet the Founders
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The passionate leaders driving AI transformation across enterprises
+              The visionary leaders building the future of enterprise AI
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="flex justify-center items-center gap-8 max-w-6xl mx-auto">
             {teamMembers.map((member, index) => (
-              <div key={index} className="group text-center p-6 rounded-3xl bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100">
-                <div className="mb-6">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-purple-100 group-hover:border-purple-300 transition-all duration-300"
-                  />
+              <div key={index} className="relative group cursor-pointer w-96 h-[28rem]">
+                {/* Card container with flip effect */}
+                <div className="relative w-full h-full [perspective:1000px]">
+                  {/* Front of card - Image with name/role */}
+                  <div className="absolute inset-0 w-full h-full rounded-2xl overflow-hidden bg-gray-100 shadow-lg group-hover:shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    {/* Team member image */}
+                    <div className="absolute inset-0">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                      {/* Dark overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    </div>
+
+                    {/* Name and role overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <div className="bg-white/20 backdrop-blur-md rounded-lg p-4 border border-white/30">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h3 className="text-xl font-bold mb-1 text-white">
+                              {member.name}
+                            </h3>
+                            <p className="text-base font-medium text-purple-200">
+                              {member.role}
+                            </p>
+                          </div>
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-2 rounded-full bg-purple-600/80 hover:bg-purple-600 transition-all duration-300 hover:scale-110"
+                          >
+                            <Linkedin className="w-5 h-5 text-white" />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Back of card - Description */}
+                  <div className="absolute inset-0 w-full h-full rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 shadow-lg group-hover:shadow-xl transition-all duration-500 [transform:rotateY(180deg)] [backface-visibility:hidden] group-hover:[transform:rotateY(0deg)]">
+                    <div className="p-6 h-full flex flex-col justify-center">
+                      <div className="text-center mb-6">
+                        <h3 className="text-2xl font-bold mb-2 text-gray-800">
+                          {member.name}
+                        </h3>
+                        <p className="text-lg font-semibold text-purple-600 mb-4">
+                          {member.role}
+                        </p>
+                        <div className="flex justify-center">
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 rounded-full bg-purple-600 hover:bg-purple-700 transition-all duration-300 hover:scale-110 shadow-lg"
+                          >
+                            <Linkedin className="w-6 h-6 text-white" />
+                          </a>
+                        </div>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-gray-700 leading-relaxed text-xs">
+                          {member.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-2" style={{ color: '#343f52' }}>
-                  {member.name}
-                </h3>
-                <p className="text-purple-600 font-semibold mb-3">
-                  {member.role}
-                </p>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {member.expertise}
-                </p>
               </div>
             ))}
           </div>
@@ -244,11 +289,17 @@ export default function AboutPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="group bg-white text-purple-700 px-10 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:bg-purple-50 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center">
+              <button
+                onClick={() => navigate('/contact')}
+                className="group bg-white text-purple-700 px-10 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:bg-purple-50 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
+              >
                 <span>Talk to Us</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
-              <button className="group border-2 border-white text-white px-10 py-4 rounded-2xl font-semibold hover:bg-white hover:text-purple-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center">
+              <button
+                onClick={() => setShowDemoForm(true)}
+                className="group border-2 border-white text-white px-10 py-4 rounded-2xl font-semibold hover:bg-white hover:text-purple-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
+              >
                 <span>Schedule Demo</span>
                 <Bot className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
               </button>
@@ -256,6 +307,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Demo Form Popup */}
+      <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
     </div>
   );
 }

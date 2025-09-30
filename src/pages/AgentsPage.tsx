@@ -1,10 +1,12 @@
 import { Bot, Zap, BookOpen, Code, Settings, BarChart3, ArrowRight, Users, Building, TrendingUp, Shield, X } from 'lucide-react';
 import { useState } from 'react';
+import DemoForm from '../components/DemoForm';
 
 export default function AgentsPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
   const [selectedTeams, setSelectedTeams] = useState<string[]>([]);
+  const [showDemoForm, setShowDemoForm] = useState(false);
 
   const agents = [
     // Process Acceleration Agents
@@ -169,11 +171,26 @@ export default function AgentsPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="group text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
+              <button
+                onClick={() => {
+                  const agentSection = document.getElementById('agent-listing');
+                  if (agentSection) {
+                    agentSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="group text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 hover:opacity-90 cursor-pointer"
+                style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+              >
                 <span>Explore Agents</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
-              <button className="group border-2 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 hover:opacity-90" style={{ borderColor: '#3c1470', color: '#3c1470' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; e.currentTarget.style.color = 'white'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#3c1470'; }}>
+              <button
+                onClick={() => setShowDemoForm(true)}
+                className="group border-2 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 hover:opacity-90 cursor-pointer"
+                style={{ borderColor: '#3c1470', color: '#3c1470' }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; e.currentTarget.style.color = 'white'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#3c1470'; }}
+              >
                 <span>Book a Demo</span>
                 <Bot className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
               </button>
@@ -183,7 +200,7 @@ export default function AgentsPage() {
       </section>
 
       {/* Main Content with Sidebar */}
-      <section className="w-full bg-white">
+      <section id="agent-listing" className="w-full bg-white">
         <div className="section-container section-padding">
           <div className="flex gap-8">
             {/* Left Sidebar - Filters */}
@@ -253,7 +270,7 @@ export default function AgentsPage() {
                       setSelectedIndustries([]);
                       setSelectedTeams([]);
                     }}
-                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-500 hover:text-gray-700 transition-colors border border-gray-300 rounded-lg hover:bg-gray-50"
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 hover:text-gray-800 transition-colors border border-gray-300 rounded-lg hover:bg-gray-50 cursor-pointer"
                   >
                     <X className="w-4 h-4" />
                     Clear Filters
@@ -273,21 +290,24 @@ export default function AgentsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredAgents.map((agent, index) => (
-                  <div key={index} className="group rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" style={{ background: 'linear-gradient(135deg, #1e1e1e 0%, #3c1470 50%, #5a2a8a 100%)' }}>
+                  <div key={index} className="group rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer relative overflow-hidden" style={{
+                    background: 'linear-gradient(135deg, #1e1e1e 0%, #3c1470 50%, #5a2a8a 100%)',
+                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+                  }}>
                     {/* Agent Header */}
                     <div className="mb-4">
                       <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/20 text-white backdrop-blur-sm">
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/20 text-white">
                           {agent.icon}
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-white group-hover:text-pink-400 transition-colors">
                             {agent.name}
                           </h3>
-                          <p className="text-sm text-gray-400">{agent.category}</p>
+                          <p className="text-sm text-white/70">{agent.category}</p>
                         </div>
                       </div>
-                      <p className="text-sm text-gray-300 leading-relaxed">
+                      <p className="text-sm text-white/80 leading-relaxed">
                         {agent.description}
                       </p>
                     </div>
@@ -296,7 +316,7 @@ export default function AgentsPage() {
                     <div className="mb-6">
                       <div className="flex flex-wrap gap-2">
                         {agent.tags.map((tag, idx) => (
-                          <span key={idx} className="px-2 py-1 bg-white/20 text-white text-xs rounded border border-white/30 backdrop-blur-sm">
+                          <span key={idx} className="px-3 py-1 bg-white/20 text-white text-xs rounded-full hover:bg-white/30 transition-all duration-200">
                             {tag}
                           </span>
                         ))}
@@ -347,11 +367,17 @@ export default function AgentsPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <button className="group bg-white text-purple-700 px-10 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:bg-purple-50 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center">
+                  <button
+                    onClick={() => setShowDemoForm(true)}
+                    className="group bg-white text-purple-700 px-10 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:bg-purple-50 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
+                  >
                     <span>Start Building</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
-                  <button className="group border-2 border-white text-white px-10 py-4 rounded-2xl font-semibold hover:bg-white hover:text-purple-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center">
+                  <button
+                    onClick={() => window.location.href = '/contact'}
+                    className="group border-2 border-white text-white px-10 py-4 rounded-2xl font-semibold hover:bg-white hover:text-purple-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
+                  >
                     <span>Contact Sales</span>
                     <Bot className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                   </button>
@@ -361,6 +387,9 @@ export default function AgentsPage() {
           </div>
         </div>
       </section>
+
+      {/* Demo Form Popup */}
+      <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
     </div>
   );
 }
