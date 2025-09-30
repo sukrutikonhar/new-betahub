@@ -89,10 +89,6 @@ export default function HomePage() {
         }
     };
 
-    const getAgentCardClasses = () => {
-        const baseClasses = "group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-purple-300 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl w-full";
-        return baseClasses;
-    };
     return (
         <div className="flex flex-col items-center">
 
@@ -156,10 +152,10 @@ export default function HomePage() {
                                     <div className="bg-white/5 rounded-lg p-4">
                                         <div className="flex items-center justify-between mb-2">
                                             <span className="text-white text-sm font-medium">See results in</span>
-                                            <span className="text-pink-400 text-sm font-bold">Weeks not Months</span>
+                                            <span className="text-[#EC89DD] text-sm font-bold">Weeks not Months</span>
                                         </div>
                                         <div className="w-full bg-white/20 rounded-full h-2">
-                                            <div className="bg-gradient-primary h-2 rounded-full w-3/4"></div>
+                                            <div className="h-2 rounded-full w-3/4" style={{ background: 'linear-gradient(135deg, #A7439F 0%, #E8CAF7 100%)' }}></div>
                                         </div>
                                     </div>
 
@@ -221,10 +217,10 @@ export default function HomePage() {
             {/* Problem Statement Section */}
             <section className="w-full bg-white relative overflow-hidden">
                 <div className="section-container section-padding">
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center mb-32">
-                        {/* Left Side - Title and Content (3 columns) */}
-                        <div className="lg:col-span-3">
-                            <div className="max-w-2xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-9 gap-16 items-center mb-32 max-w-6xl mx-auto">
+                        {/* Left Side - Title and Content (4 columns) */}
+                        <div className="lg:col-span-4">
+                            <div className="max-w-2xl pr-8 lg:pr-12">
                                 <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight" style={{ color: '#343f52' }}>
                                     Solving the AI Value Gap
                                 </h2>
@@ -250,8 +246,8 @@ export default function HomePage() {
                             </div>
                         </div>
 
-                        {/* Right Side - Feature Cards (2 columns) */}
-                        <div className="lg:col-span-2 space-y-6">
+                        {/* Right Side - Feature Cards (5 columns) */}
+                        <div className="lg:col-span-5 space-y-6 pl-8 lg:pl-12">
                             {/* Feature 1 */}
                             <div className="group p-6 rounded-3xl bg-white transition-all duration-300 hover:-translate-y-1" style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }} onMouseEnter={(e) => e.currentTarget.style.boxShadow = 'rgba(0, 0, 0, 0.35) 0px 5px 15px'} onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}>
                                 <div className="flex items-start gap-4">
@@ -409,7 +405,7 @@ export default function HomePage() {
 
                                             {/* Tags */}
                                             <div className="flex flex-col gap-2">
-                                                {agent.tags.map((tag, tagIndex) => (
+                                                {agent.tags.map((tag) => (
                                                     <span
                                                         key={tag}
                                                         className="px-2 py-1 text-xs rounded border border-white/30 backdrop-blur-sm text-white"

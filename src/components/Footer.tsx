@@ -10,7 +10,6 @@ export default function Footer() {
     const quickLinks = [
         { path: ROUTES.ABOUT, label: ROUTE_LABELS[ROUTES.ABOUT] },
         { path: ROUTES.AGENTS, label: ROUTE_LABELS[ROUTES.AGENTS] },
-        { path: ROUTES.PRICING, label: ROUTE_LABELS[ROUTES.PRICING] },
         { path: ROUTES.EVENTS, label: ROUTE_LABELS[ROUTES.EVENTS] },
         { path: ROUTES.CONTACT, label: ROUTE_LABELS[ROUTES.CONTACT] },
     ];
