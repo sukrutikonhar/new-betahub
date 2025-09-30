@@ -116,12 +116,12 @@ const EventsPage: React.FC = () => {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button className="group bg-gradient-to-r from-purple-300 to-purple-400 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 hover:from-purple-400 hover:to-purple-500 flex items-center gap-3 justify-center">
+                                <button className="group text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center gap-3 justify-center shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                                     <Calendar className="w-5 h-5" />
                                     <span>Book a Meeting</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                                 </button>
-                                <button className="group border-2 border-purple-300 text-purple-600 px-8 py-4 rounded-2xl font-semibold hover:bg-gradient-to-r hover:from-purple-300 hover:to-purple-400 hover:text-white transition-all duration-300 flex items-center gap-3 justify-center">
+                                <button className="group border-2 px-8 py-4 rounded-2xl font-semibold hover:text-white transition-all duration-300 flex items-center gap-3 justify-center" style={{ borderColor: '#3c1470', color: '#3c1470' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
                                     <Building className="w-5 h-5" />
                                     <span>Visit Our Booth</span>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
@@ -157,7 +157,7 @@ const EventsPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {actionCards.map((card, index) => (
-                            <div key={index} className="group rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-purple-300/50 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #743CAC 0%, #9B59B6 50%, #E8CAF7 100%)' }}>
+                            <div key={index} className="group rounded-3xl p-8 text-center hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-purple-300/50 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                                 {/* Background decorative element */}
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full blur-2xl -translate-y-16 translate-x-16"></div>
 
@@ -282,11 +282,11 @@ const EventsPage: React.FC = () => {
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4">
-                                    <button className="bg-gradient-to-r from-purple-300 to-purple-400 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 hover:from-purple-400 hover:to-purple-500 flex items-center justify-center gap-2">
+                                    <button className="text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                                         <Calendar className="w-5 h-5" />
                                         Add to Calendar
                                     </button>
-                                    <button className="border-2 border-purple-300 text-purple-600 px-8 py-4 rounded-2xl font-semibold hover:bg-gradient-to-r hover:from-purple-300 hover:to-purple-400 hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                                    <button className="border-2 px-8 py-4 rounded-2xl font-semibold hover:text-white transition-all duration-300 flex items-center justify-center gap-2" style={{ borderColor: '#3c1470', color: '#3c1470' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}>
                                         <ExternalLink className="w-5 h-5" />
                                         Learn More
                                     </button>

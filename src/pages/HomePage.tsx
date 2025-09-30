@@ -83,7 +83,7 @@ export default function HomePage() {
         const isActive = activeCategory === category;
 
         if (isActive) {
-            return `${baseClasses} bg-gradient-to-r from-purple-200 to-purple-300 text-white shadow-lg hover:shadow-xl`;
+            return `${baseClasses} text-white shadow-lg hover:shadow-xl`;
         } else {
             return `${baseClasses} bg-white text-gray-600 border-2 border-gray-200 hover:border-purple-300 hover:text-purple-600 hover:shadow-md`;
         }
@@ -297,7 +297,7 @@ export default function HomePage() {
                     </div>
 
                     {/* Our Approach Section - Custom Purple Background */}
-                    <div className="rounded-3xl p-12 shadow-2xl border border-purple-300/30 relative overflow-hidden mt-16" style={{ backgroundColor: '#743CAC' }}>
+                    <div className="rounded-3xl p-12 shadow-2xl border border-purple-300/30 relative overflow-hidden mt-16" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                         {/* Background decorative elements */}
                         <div className="absolute inset-0 overflow-hidden">
                             <div className="absolute top-10 right-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
@@ -381,6 +381,7 @@ export default function HomePage() {
                                     key={key}
                                     onClick={() => setActiveCategory(key)}
                                     className={getCategoryButtonClasses(key)}
+                                    style={activeCategory === key ? { background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' } : {}}
                                 >
                                     <IconComponent className="w-6 h-6" />
                                     {category.title}
@@ -392,29 +393,27 @@ export default function HomePage() {
                     {/* Active Category Content */}
                     <div className="">
                         {/* Agent Cards Grid */}
-                        <div className={`flex ${activeCategory === 'process' ? 'justify-start' : 'justify-center'}`}>
+                        <div className="flex justify-center">
                             <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${activeCategory === 'process' ? 'lg:grid-cols-4 max-w-7xl' : 'lg:grid-cols-3 max-w-5xl'}`}>
                                 {agentCategories[activeCategory as keyof typeof agentCategories].agents.map((agent) => (
                                     <a
                                         key={agent.name}
                                         href={agent.link}
-                                        className={getAgentCardClasses()}
+                                        className="group rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                                        style={{ background: 'linear-gradient(135deg, #3a3a3a 0%, #3c1470 50%, #5a2a8a 100%)' }}
                                     >
-                                        <div className="text-center">
-                                            <h4 className="text-xl font-bold mb-4 group-hover:text-purple-600 transition-colors duration-200" style={{ color: '#343f52' }}>
+                                        <div className="text-left">
+                                            <h4 className="text-xl font-bold mb-4 group-hover:text-pink-400 transition-colors duration-200 text-white">
                                                 {agent.name}
                                             </h4>
 
                                             {/* Tags */}
-                                            <div className="flex flex-wrap gap-2 justify-center">
+                                            <div className="flex flex-col gap-2">
                                                 {agent.tags.map((tag, tagIndex) => (
                                                     <span
                                                         key={tag}
-                                                        className="px-3 py-1 text-xs rounded-full font-medium"
-                                                        style={{
-                                                            backgroundColor: tagIndex % 2 === 0 ? '#F2E2FB' : '#FED6F8',
-                                                            color: tagIndex % 2 === 0 ? '#771af3' : '#b1229b'
-                                                        }}
+                                                        className="px-2 py-1 text-xs rounded border border-white/30 backdrop-blur-sm text-white"
+                                                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
                                                     >
                                                         {tag}
                                                     </span>
@@ -430,7 +429,7 @@ export default function HomePage() {
 
                 {/* CTA Button */}
                 <div className="text-center pb-16">
-                    <button className="bg-gradient-to-r from-purple-200 to-purple-300 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 hover:from-purple-300 hover:to-purple-400">
+                    <button className="text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                         Book a Demo
                     </button>
                 </div>
@@ -484,7 +483,7 @@ export default function HomePage() {
                                         </div>
                                     </div>
 
-                                    <button className="mx-auto bg-gradient-to-r from-purple-300 to-purple-400 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                                    <button className="mx-auto text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                                         RSVP Now
                                         <ArrowRight className="w-5 h-5" />
                                     </button>
@@ -520,7 +519,7 @@ export default function HomePage() {
                                         </div>
                                     </div>
 
-                                    <button className="mx-auto bg-gradient-to-r from-purple-300 to-purple-400 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                                    <button className="mx-auto text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                                         Learn More
                                         <ArrowRight className="w-5 h-5" />
                                     </button>
@@ -543,7 +542,7 @@ export default function HomePage() {
                 <div className="section-container section-padding relative z-10">
 
                     {/* CTA Block */}
-                    <div className="rounded-3xl p-12 relative overflow-hidden shadow-2xl" style={{ background: 'linear-gradient(135deg, #743CAC 0%, #A96BF5 50%, #EC89DD 100%)' }}>
+                    <div className="rounded-3xl p-12 relative overflow-hidden shadow-2xl" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                         {/* Background decorative elements */}
                         <div className="absolute inset-0 overflow-hidden">
                             <div className="absolute top-10 right-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>

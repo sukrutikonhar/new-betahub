@@ -1,6 +1,11 @@
-import { Bot, Zap, BookOpen, Code, Settings, BarChart3, ArrowRight, Users, Building, TrendingUp, Shield } from 'lucide-react';
+import { Bot, Zap, BookOpen, Code, Settings, BarChart3, ArrowRight, Users, Building, TrendingUp, Shield, X } from 'lucide-react';
+import { useState } from 'react';
 
 export default function AgentsPage() {
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
+  const [selectedTeams, setSelectedTeams] = useState<string[]>([]);
+
   const agents = [
     // Process Acceleration Agents
     {
@@ -8,6 +13,7 @@ export default function AgentsPage() {
       description: "Turn complex business requirements into streamlined BPMN workflows and actionable insights.",
       industries: ["Manufacturing", "Banking", "Insurance", "Healthcare"],
       teams: ["Business Analysts", "Process Owners", "IT Transformation"],
+      tags: ["Requirements Gathering", "BPMN process Flow", "Business Analysis"],
       category: "Process Acceleration",
       icon: <Zap className="w-6 h-6" />,
       color: "purple"
@@ -17,6 +23,7 @@ export default function AgentsPage() {
       description: "Accelerate testing cycles with AI-powered test case generation and automation.",
       industries: ["Technology", "Retail", "Financial Services", "Telecom"],
       teams: ["QA", "Product Engineering", "DevOps"],
+      tags: ["QA Automation", "Test Management", "Test Case Generation"],
       category: "Process Acceleration",
       icon: <Settings className="w-6 h-6" />,
       color: "purple"
@@ -24,17 +31,19 @@ export default function AgentsPage() {
     {
       name: "Fit-Gap AI",
       description: "Identify ERP gaps and align processes to maximize system efficiency.",
-      industries: ["ERP-driven enterprises (Manufacturing, Distribution, Retail, Pharma)"],
+      industries: ["Manufacturing", "Distribution", "Retail", "Pharma"],
       teams: ["ERP Implementation", "Consulting", "CIO Office"],
+      tags: ["ERP Assessment", "Process Alignment", "Gap Analysis"],
       category: "Process Acceleration",
       icon: <BarChart3 className="w-6 h-6" />,
       color: "purple"
     },
     {
-      name: "Confg AI",
+      name: "Config AI",
       description: "Simplify Dynamics 365 setup and automate workflows for faster CRM adoption.",
       industries: ["Professional Services", "Retail", "Financial Services"],
       teams: ["CRM Admins", "Sales Ops", "IT Transformation"],
+      tags: ["CRM Setup", "Dynamics 365", "Workflow Automation"],
       category: "Process Acceleration",
       icon: <Building className="w-6 h-6" />,
       color: "purple"
@@ -45,6 +54,7 @@ export default function AgentsPage() {
       description: "Transform knowledge into engaging, interactive learning experiences.",
       industries: ["Education", "IT Services", "Consulting", "Healthcare"],
       teams: ["HR", "L&D", "Onboarding", "Training Managers"],
+      tags: ["Training Documentation", "Knowledge Transfer", "Interactive Learning"],
       category: "Knowledge & Training",
       icon: <BookOpen className="w-6 h-6" />,
       color: "pink"
@@ -54,6 +64,7 @@ export default function AgentsPage() {
       description: "Deliver instant, context-aware answers with AI-powered knowledge retrieval.",
       industries: ["Legal", "Healthcare", "Consulting", "Support Services"],
       teams: ["Knowledge Management", "AI Ops", "Research", "IT Support"],
+      tags: ["Knowledge Base Search", "Contextual AI", "Information Retrieval"],
       category: "Knowledge & Training",
       icon: <Bot className="w-6 h-6" />,
       color: "pink"
@@ -63,6 +74,7 @@ export default function AgentsPage() {
       description: "Automate ticketing, incident management, and support with AI-driven efficiency.",
       industries: ["SaaS", "Telecom", "Retail", "IT Services"],
       teams: ["IT Helpdesk", "Customer Service", "Support Operations"],
+      tags: ["Ticket Management", "Incident Resolution", "Support Automation"],
       category: "Knowledge & Training",
       icon: <Users className="w-6 h-6" />,
       color: "pink"
@@ -73,6 +85,7 @@ export default function AgentsPage() {
       description: "Auto-generate documentation and boost developer productivity instantly.",
       industries: ["Software Development", "IT Services", "Startups"],
       teams: ["Developers", "Engineering", "DevOps", "Documentation Teams"],
+      tags: ["Auto Documentation", "Developer Productivity", "Code Analysis"],
       category: "Code & Technical",
       icon: <Code className="w-6 h-6" />,
       color: "blue"
@@ -82,6 +95,7 @@ export default function AgentsPage() {
       description: "Turn data into competitive insights with AI-powered market intelligence.",
       industries: ["Consulting", "Financial Services", "Tech", "Market Research"],
       teams: ["Strategy", "Product Marketing", "Business Analysts"],
+      tags: ["Market Intelligence", "Competitive Analysis", "Data Insights"],
       category: "Code & Technical",
       icon: <TrendingUp className="w-6 h-6" />,
       color: "blue"
@@ -91,36 +105,62 @@ export default function AgentsPage() {
       description: "Optimize cloud spend and track budgets with AI-driven financial intelligence.",
       industries: ["SaaS", "Cloud Providers", "FinTech", "Enterprises"],
       teams: ["Finance", "CloudOps", "IT Infrastructure", "CIO Office"],
+      tags: ["Cost Optimization", "Budget Tracking", "Financial Analysis"],
       category: "Code & Technical",
       icon: <Shield className="w-6 h-6" />,
       color: "blue"
     }
   ];
 
+  // Get unique categories, industries, and teams for filters
+  const allCategories = Array.from(new Set(agents.map(agent => agent.category)));
+  const allIndustries = Array.from(new Set(agents.flatMap(agent => agent.industries)));
+  const allTeams = Array.from(new Set(agents.flatMap(agent => agent.teams)));
+
+  // Helper functions for checkbox handling
+  const handleCategoryChange = (category: string, checked: boolean) => {
+    if (checked) {
+      setSelectedCategories([...selectedCategories, category]);
+    } else {
+      setSelectedCategories(selectedCategories.filter(c => c !== category));
+    }
+  };
+
+  const handleIndustryChange = (industry: string, checked: boolean) => {
+    if (checked) {
+      setSelectedIndustries([...selectedIndustries, industry]);
+    } else {
+      setSelectedIndustries(selectedIndustries.filter(i => i !== industry));
+    }
+  };
+
+  const handleTeamChange = (team: string, checked: boolean) => {
+    if (checked) {
+      setSelectedTeams([...selectedTeams, team]);
+    } else {
+      setSelectedTeams(selectedTeams.filter(t => t !== team));
+    }
+  };
+
+  // Filter agents based on selected filters
+  const filteredAgents = agents.filter(agent => {
+    const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(agent.category);
+    const industryMatch = selectedIndustries.length === 0 || agent.industries.some(industry => selectedIndustries.includes(industry));
+    const teamMatch = selectedTeams.length === 0 || agent.teams.some(team => selectedTeams.includes(team));
+    return categoryMatch && industryMatch && teamMatch;
+  });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="w-full relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #E8CAF7 0%, #F0D7F9 20%, #F8E4FC 40%, #FCF0FF 60%, #FEF8FF 80%, #FFFFFF 100%)' }}>
-        {/* Enhanced Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-10 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse" style={{ background: 'linear-gradient(135deg, #E8CAF7 0%, #A96BF5 50%, #8116EC 100%)', opacity: 0.2 }}></div>
-          <div className="absolute top-32 left-10 w-80 h-80 rounded-full blur-2xl" style={{ background: 'linear-gradient(135deg, #A96BF5 0%, #DD2BC2 50%, #E8CAF7 100%)', opacity: 0.15 }}></div>
-          <div className="absolute bottom-20 right-1/4 w-72 h-72 rounded-full blur-3xl" style={{ background: 'linear-gradient(135deg, #8116EC 0%, #A96BF5 50%, #E8CAF7 100%)', opacity: 0.1 }}></div>
-          <div className="absolute bottom-10 left-20 w-64 h-64 rounded-full blur-2xl animate-pulse" style={{ background: 'linear-gradient(135deg, #DD2BC2 0%, #A96BF5 50%, #E8CAF7 100%)', opacity: 0.15 }}></div>
-          {/* Floating particles */}
-          <div className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full animate-bounce" style={{ background: '#A96BF5', opacity: 0.6 }}></div>
-          <div className="absolute top-1/2 right-1/3 w-1 h-1 rounded-full animate-bounce" style={{ background: '#DD2BC2', opacity: 0.7, animationDelay: '1s' }}></div>
-          <div className="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 rounded-full animate-bounce" style={{ background: '#E8CAF7', opacity: 0.5, animationDelay: '2s' }}></div>
-        </div>
-
-        <div className="section-container section-padding relative z-10">
+      <section className="w-full relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)' }}>
+        <div className="section-container section-padding">
           <div className="text-center">
             <h1 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              <span className="text-gray-800">Discover a suite of</span>
-              <span className="bg-gradient-to-r from-#A96BF5 via-#8116EC to-#DD2BC2 bg-clip-text text-transparent" style={{ background: 'linear-gradient(135deg, #A96BF5 0%, #8116EC 50%, #DD2BC2 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}> real agents</span><br />
-              <span className="text-gray-800">delivering</span>
-              <span className="bg-gradient-to-r from-#DD2BC2 via-#A96BF5 to-#8116EC bg-clip-text text-transparent" style={{ background: 'linear-gradient(135deg, #DD2BC2 0%, #A96BF5 50%, #8116EC 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}> real results</span>
+              <span style={{ color: '#343f52' }}>Discover a suite of</span>
+              <span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent" style={{ background: 'linear-gradient(135deg, #743CAC 0%, #5a2a8a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}> real agents</span><br />
+              <span style={{ color: '#343f52' }}>delivering</span>
+              <span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent" style={{ background: 'linear-gradient(135deg, #743CAC 0%, #5a2a8a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}> real results</span>
             </h1>
 
             <p className="text-xl lg:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
@@ -129,11 +169,11 @@ export default function AgentsPage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="group text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3" style={{ background: 'linear-gradient(135deg, #8116EC 0%, #A96BF5 100%)' }}>
+              <button className="group text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                 <span>Explore Agents</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
-              <button className="group border-2 border-purple-500 text-purple-700 px-8 py-4 rounded-2xl font-semibold hover:bg-purple-500 hover:text-white transition-all duration-300 hover:-translate-y-1 flex items-center gap-3">
+              <button className="group border-2 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 hover:opacity-90" style={{ borderColor: '#3c1470', color: '#3c1470' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)'; e.currentTarget.style.color = 'white'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#3c1470'; }}>
                 <span>Book a Demo</span>
                 <Bot className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
               </button>
@@ -142,133 +182,146 @@ export default function AgentsPage() {
         </div>
       </section>
 
-      {/* Why Choose Our Agents */}
-      <section className="w-full relative overflow-hidden bg-white">
+      {/* Main Content with Sidebar */}
+      <section className="w-full bg-white">
         <div className="section-container section-padding">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#343f52' }}>
-              Why Choose Our Agents?
-            </h2>
-          </div>
+          <div className="flex gap-8">
+            {/* Left Sidebar - Filters */}
+            <div className="w-80 flex-shrink-0">
+              <div className="sticky top-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-6">Filter</h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-muted-purple/10 to-muted-purple/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Zap className="w-8 h-8 text-muted-purple" />
-              </div>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#343f52' }}>Instant Value</h3>
-              <p className="text-lg" style={{ color: '#60697b' }}>
-                Pre-built and ready to deploy, so you can start fast.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-bright-pink/10 to-bright-pink/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Settings className="w-8 h-8 text-bright-pink" />
-              </div>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#343f52' }}>Fully Configurable</h3>
-              <p className="text-lg" style={{ color: '#60697b' }}>
-                Adapt each agent to fit your workflows, systems, and goals.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-muted-purple/10 to-bright-pink/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <BarChart3 className="w-8 h-8 text-muted-purple" />
-              </div>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#343f52' }}>Proven Impact</h3>
-              <p className="text-lg" style={{ color: '#60697b' }}>
-                Not concepts, but tested agents delivering measurable outcomes.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* All AI Agents */}
-      <section className="w-full relative overflow-hidden bg-white">
-        <div className="section-container section-padding">
-          {/* Section Title */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: '#343f52' }}>
-              Our AI Agents
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Choose from our comprehensive suite of AI agents, each designed to solve specific business challenges and deliver measurable results.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-4 gap-y-8">
-            {agents.map((agent, agentIndex) => {
-              const isEven = agentIndex % 2 === 0;
-
-              return (
-                <div key={agentIndex} className={`group bg-white rounded-3xl p-4 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden ${isEven ? 'border-2 border-muted-purple/20 hover:border-muted-purple/40' : 'border-2 border-bright-pink/20 hover:border-bright-pink/40'}`}>
-                  {/* Background decorative elements */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${isEven ? 'from-muted-purple/5 to-bright-pink/5' : 'from-bright-pink/5 to-muted-purple/5'} rounded-full blur-3xl -translate-y-16 translate-x-16 group-hover:scale-110 transition-transform duration-500`}></div>
-                    <div className={`absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br ${isEven ? 'from-bright-pink/5 to-muted-purple/5' : 'from-muted-purple/5 to-bright-pink/5'} rounded-full blur-2xl translate-y-12 -translate-x-12 group-hover:scale-110 transition-transform duration-500`}></div>
+                {/* Category Filter */}
+                <div className="mb-8">
+                  <h4 className="text-sm font-medium text-gray-700 mb-4">By Category</h4>
+                  <div className="space-y-2">
+                    {allCategories.map((category) => (
+                      <label key={category} className="flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedCategories.includes(category)}
+                          onChange={(e) => handleCategoryChange(category, e.target.checked)}
+                          className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                        />
+                        <span className="ml-3 text-sm text-gray-700">{category}</span>
+                      </label>
+                    ))}
                   </div>
-
-
-                  {/* Enhanced Category Badge */}
-                  <div className="mb-6">
-                    <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold ${isEven ? 'bg-gradient-to-r from-muted-purple/20 to-muted-purple/10 text-muted-purple border-2 border-muted-purple/30' : 'bg-gradient-to-r from-bright-pink/20 to-bright-pink/10 text-bright-pink border-2 border-bright-pink/30'} shadow-lg group-hover:shadow-xl transition-all duration-300`}>
-                      <div className={`w-2 h-2 rounded-full ${isEven ? 'bg-muted-purple' : 'bg-bright-pink'} animate-pulse`}></div>
-                      <span className="uppercase tracking-wide">{agent.category}</span>
-                    </div>
-                  </div>
-
-                  {/* Agent Info with enhanced typography */}
-                  <div className="relative z-10 mb-8">
-                    <h3 className={`text-2xl font-bold mb-4 group-hover:${isEven ? 'text-bright-pink' : 'text-muted-purple'} transition-colors duration-300`} style={{ color: '#343f52' }}>
-                      {agent.name}
-                    </h3>
-
-                    <p className="text-sm leading-relaxed group-hover:text-gray-600 transition-colors duration-300" style={{ color: '#60697b' }}>
-                      {agent.description}
-                    </p>
-                  </div>
-
-                  {/* Workflows Section with alternating colors */}
-                  <div className="mb-6">
-                    <h4 className={`text-xs font-bold mb-4 ${isEven ? 'text-muted-purple' : 'text-bright-pink'} uppercase tracking-wide flex items-center gap-2`}>
-                      <div className={`w-2 h-2 rounded-full ${isEven ? 'bg-muted-purple' : 'bg-bright-pink'}`}></div>
-                      Workflows
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {agent.industries.map((industry, index) => (
-                        <span key={index} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${isEven ? 'bg-muted-purple/10 text-muted-purple hover:bg-muted-purple/20' : 'bg-bright-pink/10 text-bright-pink hover:bg-bright-pink/20'} transition-all duration-300 group-hover:shadow-sm border ${isEven ? 'border-muted-purple/20' : 'border-bright-pink/20'}`}>
-                          {industry}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Teams Section with alternating colors */}
-                  <div className="mb-8">
-                    <h4 className={`text-xs font-bold mb-4 ${isEven ? 'text-bright-pink' : 'text-muted-purple'} uppercase tracking-wide flex items-center gap-2`}>
-                      <div className={`w-2 h-2 rounded-full ${isEven ? 'bg-bright-pink' : 'bg-muted-purple'}`}></div>
-                      Teams
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {agent.teams.map((team, index) => (
-                        <span key={index} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${isEven ? 'bg-bright-pink/10 text-bright-pink hover:bg-bright-pink/20' : 'bg-muted-purple/10 text-muted-purple hover:bg-muted-purple/20'} transition-all duration-300 group-hover:shadow-sm border ${isEven ? 'border-bright-pink/20' : 'border-muted-purple/20'}`}>
-                          {team}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Enhanced CTA Button */}
-                  <button className="w-full py-3 px-6 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm text-white hover:shadow-lg group-hover:shadow-xl group-hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg, #8116EC 0%, #A96BF5 100%)' }}>
-                    <span>Deploy Agent</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </button>
-
-                  {/* Subtle border glow on hover */}
-                  <div className={`absolute inset-0 rounded-3xl border border-transparent group-hover:${isEven ? 'border-muted-purple/20' : 'border-bright-pink/20'} transition-all duration-500 pointer-events-none`}></div>
                 </div>
-              );
-            })}
+
+                {/* Industry Filter */}
+                <div className="mb-8">
+                  <h4 className="text-sm font-medium text-gray-700 mb-4">By Industry</h4>
+                  <div className="space-y-2 max-h-64 overflow-y-auto">
+                    {allIndustries.map((industry) => (
+                      <label key={industry} className="flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedIndustries.includes(industry)}
+                          onChange={(e) => handleIndustryChange(industry, e.target.checked)}
+                          className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                        />
+                        <span className="ml-3 text-sm text-gray-700">{industry}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Team Filter */}
+                <div className="mb-8">
+                  <h4 className="text-sm font-medium text-gray-700 mb-4">By Teams</h4>
+                  <div className="space-y-2 max-h-64 overflow-y-auto">
+                    {allTeams.map((team) => (
+                      <label key={team} className="flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={selectedTeams.includes(team)}
+                          onChange={(e) => handleTeamChange(team, e.target.checked)}
+                          className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                        />
+                        <span className="ml-3 text-sm text-gray-700">{team}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Clear Filters */}
+                {(selectedCategories.length > 0 || selectedIndustries.length > 0 || selectedTeams.length > 0) && (
+                  <button
+                    onClick={() => {
+                      setSelectedCategories([]);
+                      setSelectedIndustries([]);
+                      setSelectedTeams([]);
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 text-sm text-gray-500 hover:text-gray-700 transition-colors border border-gray-300 rounded-lg hover:bg-gray-50"
+                  >
+                    <X className="w-4 h-4" />
+                    Clear Filters
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Right Content - Agents Grid */}
+            <div className="flex-1">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">Agent Templates</h2>
+                <div className="text-sm text-gray-500">
+                  {filteredAgents.length} agent{filteredAgents.length !== 1 ? 's' : ''} found
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredAgents.map((agent, index) => (
+                  <div key={index} className="group rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer" style={{ background: 'linear-gradient(135deg, #1e1e1e 0%, #3c1470 50%, #5a2a8a 100%)' }}>
+                    {/* Agent Header */}
+                    <div className="mb-4">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/20 text-white backdrop-blur-sm">
+                          {agent.icon}
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-white group-hover:text-pink-400 transition-colors">
+                            {agent.name}
+                          </h3>
+                          <p className="text-sm text-gray-400">{agent.category}</p>
+                        </div>
+                      </div>
+                      <p className="text-sm text-gray-300 leading-relaxed">
+                        {agent.description}
+                      </p>
+                    </div>
+
+                    {/* Tags */}
+                    <div className="mb-6">
+                      <div className="flex flex-wrap gap-2">
+                        {agent.tags.map((tag, idx) => (
+                          <span key={idx} className="px-2 py-1 bg-white/20 text-white text-xs rounded border border-white/30 backdrop-blur-sm">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {filteredAgents.length === 0 && (
+                <div className="text-center py-12">
+                  <p className="text-gray-500 text-lg">No agents found matching your filters.</p>
+                  <button
+                    onClick={() => {
+                      setSelectedCategories([]);
+                      setSelectedIndustries([]);
+                      setSelectedTeams([]);
+                    }}
+                    className="mt-4 text-purple-600 hover:text-purple-700 font-medium"
+                  >
+                    Clear all filters
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -277,7 +330,7 @@ export default function AgentsPage() {
       <section className="w-full relative overflow-hidden bg-white">
         <div className="section-container section-padding">
           <div className="max-w-4xl mx-auto">
-            <div className="rounded-3xl p-12 text-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #743CAC 0%, #9B59B6 50%, #E8CAF7 100%)' }}>
+            <div className="rounded-3xl p-12 text-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
               {/* Background decorative elements */}
               <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
@@ -287,19 +340,19 @@ export default function AgentsPage() {
 
               <div className="relative z-10">
                 <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                  Ready to Deploy Your AI Workforce?
+                  Can't find the AI agent template you need?
                 </h2>
                 <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Start with our most popular agents or build custom solutions tailored to your specific needs.
+                  BetaHub has pre-built 'General Problem Solvers' that can help any business with routine repetitive tasks. Looking for something more specific? Contact us to build custom agents.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                   <button className="group bg-white text-purple-700 px-10 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:bg-purple-50 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center">
-                    <span>Start Free Trial</span>
+                    <span>Start Building</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                   </button>
                   <button className="group border-2 border-white text-white px-10 py-4 rounded-2xl font-semibold hover:bg-white hover:text-purple-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center">
-                    <span>Schedule Demo</span>
+                    <span>Contact Sales</span>
                     <Bot className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                   </button>
                 </div>
