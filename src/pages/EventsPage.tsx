@@ -32,35 +32,35 @@ const EventsPage: React.FC = () => {
             name: "Manish Singh",
             role: "Founder & CEO",
             expertise: "AI Strategy & Leadership",
-            image: "https://arreglio.com/images/team/manish.webp",
+            image: "/team/manish.webp",
             linkedin: "#"
         },
         {
             name: "Morten Vinge-Maigaard",
             role: "Head of Sales",
             expertise: "Enterprise Solutions",
-            image: "https://arreglio.com/images/team/morten.webp",
+            image: "/team/morten.webp",
             linkedin: "#"
         },
         {
             name: "Kruthik Ramachandar",
             role: "Sales Lead",
             expertise: "Client Relations",
-            image: "https://arreglio.com/images/team/kruthik.webp",
+            image: "/team/kruthik.webp",
             linkedin: "#"
         },
         {
             name: "Paras Lokhande",
             role: "Solutions Specialist",
             expertise: "Technical Implementation",
-            image: "https://arreglio.com/images/team/paras.webp",
+            image: "/team/paras.webp",
             linkedin: "#"
         },
         {
             name: "Susanne Gallo Ravn",
             role: "Sales Director",
             expertise: "Market Development",
-            image: "https://arreglio.com/images/team/Sussane.webp",
+            image: "/team/Sussane.webp",
             linkedin: "#"
         }
     ];
