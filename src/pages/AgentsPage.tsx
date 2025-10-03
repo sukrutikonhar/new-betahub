@@ -1,12 +1,16 @@
 import { Bot, Zap, BookOpen, Code, Settings, BarChart3, ArrowRight, Users, Building, TrendingUp, Shield, X } from 'lucide-react';
 import { useState } from 'react';
 import DemoForm from '../components/DemoForm';
+import SEO from '../components/SEO';
+import { getSEOConfig } from '../config/seoConfig';
+import ReadingProgress from '../components/ReadingProgress';
 
 export default function AgentsPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedIndustries, setSelectedIndustries] = useState<string[]>([]);
   const [selectedTeams, setSelectedTeams] = useState<string[]>([]);
   const [showDemoForm, setShowDemoForm] = useState(false);
+  const seoData = getSEOConfig('/agents');
 
   const agents = [
     // Process Acceleration Agents
@@ -154,6 +158,12 @@ export default function AgentsPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+      />
       {/* Hero Section */}
       <section className="w-full relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #E8CAF7 0%, #F0D7F9 20%, #F8E4FC 40%, #FCF0FF 60%, #FEF8FF 80%, #FFFFFF 100%)' }}>
         <div className="section-container section-padding">
@@ -390,6 +400,9 @@ export default function AgentsPage() {
 
       {/* Demo Form Popup */}
       <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
+
+      {/* Reading Progress */}
+      <ReadingProgress color="#3c1470" size="md" />
     </div>
   );
 }

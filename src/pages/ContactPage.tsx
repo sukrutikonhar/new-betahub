@@ -1,8 +1,12 @@
-import { Mail, Phone, Clock, ArrowRight, User, Building } from 'lucide-react';
+import { Mail, Phone, Clock, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import DemoForm from '../components/DemoForm';
+import SEO from '../components/SEO';
+import { getSEOConfig } from '../config/seoConfig';
+import ReadingProgress from '../components/ReadingProgress';
 
 export default function ContactPage() {
+    const seoData = getSEOConfig('/contact');
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -49,6 +53,12 @@ export default function ContactPage() {
     };
     return (
         <div className="flex flex-col items-center">
+            <SEO
+                title={seoData.title}
+                description={seoData.description}
+                keywords={seoData.keywords}
+                ogImage={seoData.ogImage}
+            />
             {/* Hero Section */}
             <section className="w-full relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-purple-50">
                 {/* Background decorative elements */}
@@ -158,106 +168,73 @@ export default function ContactPage() {
                                     {/* Name Fields */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="firstName" className="block text-sm font-semibold mb-2" style={{ color: '#343f52' }}>
-                                                First Name *
-                                            </label>
-                                            <div className="relative">
-                                                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                                <input
-                                                    type="text"
-                                                    id="firstName"
-                                                    name="firstName"
-                                                    value={formData.firstName}
-                                                    onChange={handleInputChange}
-                                                    required
-                                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
-                                                    placeholder="Enter your first name"
-                                                />
-                                            </div>
+                                            <input
+                                                type="text"
+                                                id="firstName"
+                                                name="firstName"
+                                                value={formData.firstName}
+                                                onChange={handleInputChange}
+                                                required
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
+                                                placeholder="First Name *"
+                                            />
                                         </div>
                                         <div>
-                                            <label htmlFor="lastName" className="block text-sm font-semibold mb-2" style={{ color: '#343f52' }}>
-                                                Last Name *
-                                            </label>
-                                            <div className="relative">
-                                                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                                <input
-                                                    type="text"
-                                                    id="lastName"
-                                                    name="lastName"
-                                                    value={formData.lastName}
-                                                    onChange={handleInputChange}
-                                                    required
-                                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
-                                                    placeholder="Enter your last name"
-                                                />
-                                            </div>
+                                            <input
+                                                type="text"
+                                                id="lastName"
+                                                name="lastName"
+                                                value={formData.lastName}
+                                                onChange={handleInputChange}
+                                                required
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
+                                                placeholder="Last Name *"
+                                            />
                                         </div>
                                     </div>
 
                                     {/* Email and Phone */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="email" className="block text-sm font-semibold mb-2" style={{ color: '#343f52' }}>
-                                                Email Address *
-                                            </label>
-                                            <div className="relative">
-                                                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                                <input
-                                                    type="email"
-                                                    id="email"
-                                                    name="email"
-                                                    value={formData.email}
-                                                    onChange={handleInputChange}
-                                                    required
-                                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
-                                                    placeholder="Enter your email address"
-                                                />
-                                            </div>
+                                            <input
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleInputChange}
+                                                required
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
+                                                placeholder="Email Address *"
+                                            />
                                         </div>
                                         <div>
-                                            <label htmlFor="phoneNumber" className="block text-sm font-semibold mb-2" style={{ color: '#343f52' }}>
-                                                Phone Number
-                                            </label>
-                                            <div className="relative">
-                                                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                                <input
-                                                    type="tel"
-                                                    id="phoneNumber"
-                                                    name="phoneNumber"
-                                                    value={formData.phoneNumber}
-                                                    onChange={handleInputChange}
-                                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
-                                                    placeholder="Enter your phone number"
-                                                />
-                                            </div>
+                                            <input
+                                                type="tel"
+                                                id="phoneNumber"
+                                                name="phoneNumber"
+                                                value={formData.phoneNumber}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
+                                                placeholder="Phone Number"
+                                            />
                                         </div>
                                     </div>
 
                                     {/* Company and Area of Interest */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label htmlFor="companyName" className="block text-sm font-semibold mb-2" style={{ color: '#343f52' }}>
-                                                Company Name *
-                                            </label>
-                                            <div className="relative">
-                                                <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                                <input
-                                                    type="text"
-                                                    id="companyName"
-                                                    name="companyName"
-                                                    value={formData.companyName}
-                                                    onChange={handleInputChange}
-                                                    required
-                                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
-                                                    placeholder="Enter your company name"
-                                                />
-                                            </div>
+                                            <input
+                                                type="text"
+                                                id="companyName"
+                                                name="companyName"
+                                                value={formData.companyName}
+                                                onChange={handleInputChange}
+                                                required
+                                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-300 focus:border-transparent transition-all duration-200"
+                                                placeholder="Company Name *"
+                                            />
                                         </div>
                                         <div>
-                                            <label htmlFor="areaOfInterest" className="block text-sm font-semibold mb-2" style={{ color: '#343f52' }}>
-                                                Area of Interest *
-                                            </label>
                                             <select
                                                 id="areaOfInterest"
                                                 name="areaOfInterest"
@@ -279,9 +256,6 @@ export default function ContactPage() {
 
                                     {/* Message */}
                                     <div>
-                                        <label htmlFor="message" className="block text-sm font-semibold mb-2" style={{ color: '#343f52' }}>
-                                            Message *
-                                        </label>
                                         <textarea
                                             id="message"
                                             name="message"
@@ -290,7 +264,7 @@ export default function ContactPage() {
                                             required
                                             rows={5}
                                             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 resize-none"
-                                            placeholder="Tell us about your project or how we can help you..."
+                                            placeholder="Message * - Tell us about your project or how we can help you..."
                                         />
                                     </div>
 
@@ -345,13 +319,9 @@ export default function ContactPage() {
                             </div>
                         )}
                     </div>
-                </div>
-            </section>
 
-            {/* CTA Section */}
-            <section className="w-full relative overflow-hidden bg-white">
-                <div className="section-container section-padding pt-0">
-                    <div className="max-w-4xl mx-auto">
+                    {/* CTA Block */}
+                    <div className="max-w-5xl mx-auto mt-16">
                         <div className="rounded-3xl p-12 text-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                             {/* Background decorative elements */}
                             <div className="absolute inset-0 overflow-hidden">
@@ -394,6 +364,9 @@ export default function ContactPage() {
 
             {/* Demo Form Popup */}
             <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
+
+            {/* Reading Progress */}
+            <ReadingProgress color="#3c1470" size="md" />
         </div>
     );
 }

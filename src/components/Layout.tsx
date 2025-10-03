@@ -3,6 +3,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import Header from "./Header";
 import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
 import { ROUTES } from "../router/routes";
 
 export default function Layout() {
@@ -12,6 +13,7 @@ export default function Layout() {
 
     return (
         <div className="flex flex-col min-h-screen">
+            <ScrollToTop />
             {/* Gartner Banner - Only show on home page */}
             {isHomePage && showBanner && (
                 <section className="w-full bg-blue-900 text-white py-3 relative z-50">
@@ -19,7 +21,7 @@ export default function Layout() {
                         <div className="flex items-center justify-center gap-2 text-sm">
                             <span className="font-medium">Proud Exhibitor at #GartnerSYM | Meet us at the Gartner IT Symposium, Barcelona | 10-13 November, 2025 |</span>
                             <a
-                                href="/events"
+                                href="/gartner-2025"
                                 className="text-orange-400 underline hover:text-orange-300 transition-colors duration-200 cursor-pointer"
                             >
                                 Learn More

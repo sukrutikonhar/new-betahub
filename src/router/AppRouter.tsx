@@ -4,7 +4,10 @@ import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import AgentsPage from '../pages/AgentsPage';
 import ContactPage from '../pages/ContactPage';
-import EventsPage from '../pages/EventsPage';
+import GartnerPage from '../pages/GartnerPage';
+import PrivacyPolicyPage from '../pages/PrivacyPolicyPage';
+import TermsOfServicePage from '../pages/TermsOfServicePage';
+import CookiePolicyPage from '../pages/CookiePolicyPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 export const appRouter = createBrowserRouter([
@@ -30,8 +33,20 @@ export const appRouter = createBrowserRouter([
         element: <ContactPage />,
       },
       {
-        path: 'events',
-        element: <EventsPage />,
+        path: 'gartner-2025',
+        element: <GartnerPage />,
+      },
+      {
+        path: 'privacy-policy',
+        element: <PrivacyPolicyPage />,
+      },
+      {
+        path: 'terms-of-service',
+        element: <TermsOfServicePage />,
+      },
+      {
+        path: 'cookie-policy',
+        element: <CookiePolicyPage />,
       },
     ],
   },

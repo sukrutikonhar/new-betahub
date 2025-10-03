@@ -2,6 +2,9 @@ import { ArrowRight, Bot, Zap, Users, CheckCircle, Building2, Rocket, Target, Ca
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DemoForm from '../components/DemoForm';
+import SEO from '../components/SEO';
+import { getSEOConfig } from '../config/seoConfig';
+import ReadingProgress from '../components/ReadingProgress';
 
 export default function HomePage() {
     const [activeCategory, setActiveCategory] = useState('process');
@@ -93,8 +96,16 @@ export default function HomePage() {
         }
     };
 
+    const seoData = getSEOConfig('/');
+
     return (
         <div className="flex flex-col items-center">
+            <SEO
+                title={seoData.title}
+                description={seoData.description}
+                keywords={seoData.keywords}
+                ogImage={seoData.ogImage}
+            />
 
             {/* Hero Section */}
             <section className="w-full relative overflow-hidden">
@@ -434,17 +445,17 @@ export default function HomePage() {
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* CTA Button */}
-                <div className="text-center pb-16">
-                    <button
-                        onClick={() => setShowDemoForm(true)}
-                        className="text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90 cursor-pointer"
-                        style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
-                    >
-                        Book a Demo
-                    </button>
+                    {/* CTA Button */}
+                    <div className="text-center pt-16">
+                        <button
+                            onClick={() => setShowDemoForm(true)}
+                            className="text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 shadow-lg hover:opacity-90 cursor-pointer"
+                            style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+                        >
+                            Book a Demo
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -496,10 +507,16 @@ export default function HomePage() {
                                         </div>
                                     </div>
 
-                                    <button className="mx-auto text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
-                                        RSVP Now
+                                    <a
+                                        href="https://www.acumant.com/events/microsoft-x-acumant-ai-powered-dynamics-365-event/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mx-auto text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90 cursor-pointer"
+                                        style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
+                                    >
+                                        Learn More
                                         <ArrowRight className="w-5 h-5" />
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
 
@@ -532,14 +549,16 @@ export default function HomePage() {
                                         </div>
                                     </div>
 
-                                    <button
-                                        onClick={() => navigate('/events')}
+                                    <a
+                                        href="/gartner-2025"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="mx-auto text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:opacity-90 cursor-pointer"
                                         style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}
                                     >
                                         Learn More
                                         <ArrowRight className="w-5 h-5" />
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -627,6 +646,9 @@ export default function HomePage() {
 
             {/* Demo Form Popup */}
             <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
+
+            {/* Reading Progress */}
+            <ReadingProgress color="#3c1470" size="md" />
         </div >
     );
 }

@@ -30,17 +30,20 @@ A modern, responsive website for BetaHub, showcasing AI enterprise solutions and
 ## 🚀 Getting Started
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/sukrutikonhar/new-betahub.git
    cd new-betahub
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Start development server**:
+
    ```bash
    npm run dev
    ```
@@ -55,14 +58,34 @@ A modern, responsive website for BetaHub, showcasing AI enterprise solutions and
 - **Home**: Hero section, client logos, problem statement, AI agents showcase
 - **About**: Company information, team, vision, and mission
 - **Agents**: AI workforce and capabilities
-- **Services**: Custom development and advisory services
-- **Pricing**: Service packages and plans
-- **Resources**: Blogs, documentation, and resources
-- **Get Started**: Contact and onboarding
+- **Contact**: Get in touch with the team
+- **Gartner 2025**: Event page for Gartner IT Symposium
+
+## 🔍 SEO Features
+
+- **Comprehensive Meta Tags**: Title, description, keywords for all pages
+- **Open Graph Tags**: Optimized for social media sharing (Facebook, LinkedIn)
+- **Twitter Cards**: Enhanced Twitter sharing with images
+- **Structured Data**: JSON-LD schema markup for better search engine understanding
+- **Sitemap**: XML sitemap for search engine crawling
+- **Robots.txt**: Search engine directives
+- **Canonical URLs**: Prevent duplicate content issues
+- **Favicon**: Custom brand favicon
+- **PWA Manifest**: Progressive Web App support
+- **404 Page**: Custom error page with auto-redirect
 
 ## 🎯 Deployment
 
 This project is optimized for deployment on Vercel, Netlify, or any static hosting platform.
+
+### Post-Deployment SEO Checklist
+
+1. Submit sitemap to Google Search Console
+2. Submit sitemap to Bing Webmaster Tools
+3. Verify Open Graph tags using Facebook Debugger
+4. Test Twitter Cards using Twitter Card Validator
+5. Check mobile-friendliness using Google Mobile-Friendly Test
+6. Monitor Core Web Vitals in Google Search Console
 
 ## 📄 License
 
@@ -83,9 +106,9 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
 
@@ -100,40 +123,40 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
 // eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     extends: [
       // Other configs...
       // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
+      reactX.configs["recommended-typescript"],
       // Enable lint rules for React DOM
       reactDom.configs.recommended,
     ],
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
         tsconfigRootDir: import.meta.dirname,
       },
       // other options...
     },
   },
-])
+]);
 ```

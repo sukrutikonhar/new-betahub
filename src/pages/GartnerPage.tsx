@@ -1,7 +1,11 @@
 import React from 'react';
 import { Calendar, MapPin, Clock, Users, ArrowRight, ExternalLink, Award, Building } from 'lucide-react';
+import SEO from '../components/SEO';
+import { getSEOConfig } from '../config/seoConfig';
+import ReadingProgress from '../components/ReadingProgress';
 
-const EventsPage: React.FC = () => {
+const GartnerPage: React.FC = () => {
+    const seoData = getSEOConfig('/gartner-2025');
 
     const actionCards = [
         {
@@ -68,6 +72,12 @@ const EventsPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50">
+            <SEO
+                title={seoData.title}
+                description={seoData.description}
+                keywords={seoData.keywords}
+                ogImage={seoData.ogImage}
+            />
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-gradient-to-br from-purple-50 via-white to-pink-50">
                 <div className="section-container section-padding">
@@ -336,8 +346,11 @@ const EventsPage: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Reading Progress */}
+            <ReadingProgress color="#3c1470" size="md" />
         </div>
     );
 };
 
-export default EventsPage;
+export default GartnerPage;

@@ -2,10 +2,14 @@ import { ArrowRight, Bot, Target, TrendingUp, Linkedin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import DemoForm from '../components/DemoForm';
+import SEO from '../components/SEO';
+import { getSEOConfig } from '../config/seoConfig';
+import ReadingProgress from '../components/ReadingProgress';
 
 export default function AboutPage() {
   const navigate = useNavigate();
   const [showDemoForm, setShowDemoForm] = useState(false);
+  const seoData = getSEOConfig('/about');
   const teamMembers = [
     {
       name: "Manish Singh",
@@ -46,6 +50,12 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+      />
       {/* Hero Section */}
       <section className="w-full relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #E8CAF7 0%, #F0D7F9 20%, #F8E4FC 40%, #FCF0FF 60%, #FEF8FF 80%, #FFFFFF 100%)' }}>
         <div className="section-container section-padding">
@@ -310,6 +320,9 @@ export default function AboutPage() {
 
       {/* Demo Form Popup */}
       <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
+
+      {/* Reading Progress */}
+      <ReadingProgress color="#3c1470" size="md" />
     </div>
   );
 }

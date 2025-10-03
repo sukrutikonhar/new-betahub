@@ -10,15 +10,13 @@ export default function Footer() {
     const quickLinks = [
         { path: ROUTES.ABOUT, label: ROUTE_LABELS[ROUTES.ABOUT] },
         { path: ROUTES.AGENTS, label: ROUTE_LABELS[ROUTES.AGENTS] },
-        { path: ROUTES.EVENTS, label: ROUTE_LABELS[ROUTES.EVENTS] },
         { path: ROUTES.CONTACT, label: ROUTE_LABELS[ROUTES.CONTACT] },
     ];
 
     const legalLinks = [
-        { label: "Privacy Policy", path: "#" },
-        { label: "Terms of Service", path: "#" },
-        { label: "Cookie Policy", path: "#" },
-        { label: "GDPR", path: "#" },
+        { label: "Privacy Policy", path: ROUTES.PRIVACY_POLICY },
+        { label: "Terms of Service", path: ROUTES.TERMS_OF_SERVICE },
+        { label: "Cookie Policy", path: ROUTES.COOKIE_POLICY },
     ];
 
     const handleNewsletterSubmit = (e: React.FormEvent) => {

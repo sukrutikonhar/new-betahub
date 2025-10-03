@@ -4,7 +4,10 @@ export const ROUTES = {
   ABOUT: "/about",
   AGENTS: "/agents",
   CONTACT: "/contact",
-  EVENTS: "/events",
+  GARTNER: "/gartner-2025",
+  PRIVACY_POLICY: "/privacy-policy",
+  TERMS_OF_SERVICE: "/terms-of-service",
+  COOKIE_POLICY: "/cookie-policy",
 } as const;
 
 // Route labels for navigation
@@ -13,7 +16,10 @@ export const ROUTE_LABELS = {
   [ROUTES.ABOUT]: "About",
   [ROUTES.AGENTS]: "Agents",
   [ROUTES.CONTACT]: "Contact",
-  [ROUTES.EVENTS]: "Events",
+  [ROUTES.GARTNER]: "Gartner",
+  [ROUTES.PRIVACY_POLICY]: "Privacy Policy",
+  [ROUTES.TERMS_OF_SERVICE]: "Terms of Service",
+  [ROUTES.COOKIE_POLICY]: "Cookie Policy",
 } as const;
 
 // Type for route keys
