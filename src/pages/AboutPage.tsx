@@ -322,7 +322,7 @@ export default function AboutPage() {
       <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
 
       {/* Reading Progress */}
-      <ReadingProgress color="#3c1470" size="md" />
+      <ReadingProgress color="#3c1470" size="sm" />
     </div>
   );
 }

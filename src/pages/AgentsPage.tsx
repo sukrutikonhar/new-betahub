@@ -359,7 +359,7 @@ export default function AgentsPage() {
       {/* CTA Section */}
       <section className="w-full relative overflow-hidden bg-white">
         <div className="section-container section-padding">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="rounded-3xl p-12 text-center relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
               {/* Background decorative elements */}
               <div className="absolute inset-0 overflow-hidden">
@@ -369,24 +369,17 @@ export default function AgentsPage() {
               </div>
 
               <div className="relative z-10">
-                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 px-20">
                   Can't find the AI agent template you need?
                 </h2>
                 <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
                   BetaHub has pre-built 'General Problem Solvers' that can help any business with routine repetitive tasks. Looking for something more specific? Contact us to build custom agents.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <button
-                    onClick={() => setShowDemoForm(true)}
-                    className="group bg-white text-purple-700 px-10 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 hover:bg-purple-50 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
-                  >
-                    <span>Start Building</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-                  </button>
+                <div className="flex justify-center items-center">
                   <button
                     onClick={() => window.location.href = '/contact'}
-                    className="group border-2 border-white text-white px-10 py-4 rounded-2xl font-semibold hover:bg-white hover:text-purple-700 transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
+                    className="group bg-white text-purple-800 px-10 py-4 rounded-2xl font-semibold hover:bg-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3 min-w-[200px] justify-center cursor-pointer"
                   >
                     <span>Contact Sales</span>
                     <Bot className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
@@ -402,7 +395,7 @@ export default function AgentsPage() {
       <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
 
       {/* Reading Progress */}
-      <ReadingProgress color="#3c1470" size="md" />
+      <ReadingProgress color="#3c1470" size="sm" />
     </div>
   );
 }

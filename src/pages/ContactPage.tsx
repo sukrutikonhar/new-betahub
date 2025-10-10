@@ -109,7 +109,16 @@ export default function ContactPage() {
                             </p>
                             <button
                                 onClick={() => window.location.href = '/agents'}
-                                className="w-full border-2 border-purple-300 text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-200 hover:text-white transition-all duration-300 cursor-pointer"
+                                className="w-full border-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 cursor-pointer"
+                                style={{ borderColor: '#3c1470', color: '#3c1470' }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)';
+                                    e.currentTarget.style.color = 'white';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'transparent';
+                                    e.currentTarget.style.color = '#3c1470';
+                                }}
                             >
                                 Watch Product Tour
                             </button>
@@ -144,7 +153,16 @@ export default function ContactPage() {
                             </p>
                             <button
                                 onClick={() => window.location.href = 'mailto:support@betahub.com'}
-                                className="w-full border-2 border-purple-300 text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-200 hover:text-white transition-all duration-300 cursor-pointer"
+                                className="w-full border-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 cursor-pointer"
+                                style={{ borderColor: '#3c1470', color: '#3c1470' }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)';
+                                    e.currentTarget.style.color = 'white';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'transparent';
+                                    e.currentTarget.style.color = '#3c1470';
+                                }}
                             >
                                 Get Support
                             </button>
@@ -366,7 +384,7 @@ export default function ContactPage() {
             <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
 
             {/* Reading Progress */}
-            <ReadingProgress color="#3c1470" size="md" />
+            <ReadingProgress color="#3c1470" size="sm" />
         </div>
     );
 }

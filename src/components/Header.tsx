@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { ROUTES, ROUTE_LABELS } from "../router/routes";
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header({ bannerVisible = false }: { bannerVisible?: boolean }) {
     const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const isHomePage = location.pathname === ROUTES.HOME;
 
     const isActive = (path: string) => {
@@ -26,6 +28,11 @@ export default function Header({ bannerVisible = false }: { bannerVisible?: bool
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location.pathname]);
 
     // Determine header styling based on page and scroll state
     const getHeaderClasses = () => {
@@ -54,7 +61,6 @@ export default function Header({ bannerVisible = false }: { bannerVisible?: bool
         return baseClasses;
     };
 
-
     const getNavLinkClasses = (path: string) => {
         const baseClasses = "font-medium transition-colors duration-300";
         const activeClasses = isActive(path) ? "text-muted-purple" : "";
@@ -75,10 +81,14 @@ export default function Header({ bannerVisible = false }: { bannerVisible?: bool
         return {};
     };
 
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
     return (
         <header className={getHeaderClasses()}>
             <div className="section-container">
-                <div className="flex justify-between items-center py-4">
+                <div className="flex justify-between items-center py-3 sm:py-4">
                     <Link
                         to={ROUTES.HOME}
                         className="transition-all duration-300"
@@ -86,10 +96,12 @@ export default function Header({ bannerVisible = false }: { bannerVisible?: bool
                         <img
                             src={isHomePage && !isScrolled ? "/logos/logo-white.webp" : "/logos/logo-dark.webp"}
                             alt="BetaHub Logo"
-                            className="w-auto h-12 object-contain"
+                            className="w-auto h-8 sm:h-10 lg:h-12 object-contain"
                         />
                     </Link>
-                    <nav className="flex gap-6">
+
+                    {/* Desktop Navigation */}
+                    <nav className="hidden md:flex gap-4 lg:gap-6">
                         {navigationItems.map(({ path, label }) => (
                             <Link
                                 key={path}
@@ -101,7 +113,39 @@ export default function Header({ bannerVisible = false }: { bannerVisible?: bool
                             </Link>
                         ))}
                     </nav>
+
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={toggleMobileMenu}
+                        className="md:hidden p-2 rounded-lg transition-colors duration-200"
+                        style={{
+                            color: isHomePage && !isScrolled ? 'white' : '#343f52',
+                            textShadow: isHomePage && !isScrolled ? '0 2px 4px rgba(0,0,0,0.5)' : 'none'
+                        }}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
+
+                {/* Mobile Navigation Menu */}
+                {isMobileMenuOpen && (
+                    <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200">
+                        <nav className="flex flex-col py-4">
+                            {navigationItems.map(({ path, label }) => (
+                                <Link
+                                    key={path}
+                                    to={path}
+                                    className={`px-6 py-3 font-medium transition-colors duration-200 ${isActive(path)
+                                            ? "text-muted-purple bg-purple-50"
+                                            : "text-dark-gray hover:text-core-purple hover:bg-gray-50"
+                                        }`}
+                                >
+                                    {label}
+                                </Link>
+                            ))}
+                        </nav>
+                    </div>
+                )}
             </div>
         </header>
     );

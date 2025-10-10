@@ -414,34 +414,36 @@ export default function HomePage() {
                     <div className="">
                         {/* Agent Cards Grid */}
                         <div className="flex justify-center">
-                            <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${activeCategory === 'process' ? 'lg:grid-cols-4 max-w-7xl' : 'lg:grid-cols-3 max-w-5xl'}`}>
-                                {agentCategories[activeCategory as keyof typeof agentCategories].agents.map((agent) => (
-                                    <a
-                                        key={agent.name}
-                                        href={agent.link}
-                                        className="group rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-                                        style={{ background: 'linear-gradient(135deg, #3a3a3a 0%, #3c1470 50%, #5a2a8a 100%)' }}
-                                    >
-                                        <div className="text-left">
-                                            <h4 className="text-xl font-bold mb-4 group-hover:text-pink-400 transition-colors duration-200 text-white">
-                                                {agent.name}
-                                            </h4>
+                            <div className="flex flex-wrap justify-center gap-8 max-w-7xl">
+                                {agentCategories[activeCategory as keyof typeof agentCategories].agents.map((agent) => {
+                                    return (
+                                        <a
+                                            key={agent.name}
+                                            href={agent.link}
+                                            className="group rounded-lg p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                                            style={{ background: 'linear-gradient(135deg, #3a3a3a 0%, #3c1470 50%, #5a2a8a 100%)' }}
+                                        >
+                                            <div className="text-left">
+                                                <h4 className="text-xl font-bold mb-4 group-hover:text-pink-400 transition-colors duration-200 text-white">
+                                                    {agent.name}
+                                                </h4>
 
-                                            {/* Tags */}
-                                            <div className="flex flex-col gap-2">
-                                                {agent.tags.map((tag) => (
-                                                    <span
-                                                        key={tag}
-                                                        className="px-2 py-1 text-xs rounded border border-white/30 backdrop-blur-sm text-white"
-                                                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
-                                                    >
-                                                        {tag}
-                                                    </span>
-                                                ))}
+                                                {/* Tags */}
+                                                <div className="flex flex-col gap-2">
+                                                    {agent.tags.map((tag) => (
+                                                        <span
+                                                            key={tag}
+                                                            className="px-2 py-1 text-xs rounded border border-white/30 backdrop-blur-sm text-white"
+                                                            style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)' }}
+                                                        >
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                ))}
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>
@@ -581,14 +583,14 @@ export default function HomePage() {
                     <div className="rounded-3xl p-12 relative overflow-hidden shadow-2xl" style={{ background: 'linear-gradient(135deg, #3c1470 0%, #5a2a8a 100%)' }}>
                         {/* Background decorative elements */}
                         <div className="absolute inset-0 overflow-hidden">
-                            <div className="absolute top-10 right-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
+                            {/* <div className="absolute top-10 right-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
                             <div className="absolute top-20 right-20 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
                             <div className="absolute bottom-10 left-10 w-40 h-40 bg-white/15 rounded-full blur-2xl"></div>
                             <div className="absolute bottom-20 left-20 w-60 h-60 bg-white/5 rounded-full blur-3xl"></div>
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div> */}
                             {/* Pink accent elements */}
-                            <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl"></div>
-                            <div className="absolute bottom-1/3 right-1/3 w-32 h-32 bg-pink-400/15 rounded-full blur-3xl"></div>
+                            {/* <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl"></div>
+                            <div className="absolute bottom-1/3 right-1/3 w-32 h-32 bg-pink-400/15 rounded-full blur-3xl"></div> */}
                         </div>
 
                         <div className="relative z-10 text-center">
@@ -598,26 +600,17 @@ export default function HomePage() {
                                 </div>
                             </div>
 
-                            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+                            <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">
                                 Customize your AI Agents
                             </h3>
 
                             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
                                 Build the agents your business needs. Betahub makes it simple to transform ideas into enterprise-ready automation.</p>
 
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-                                <button
-                                    onClick={() => navigate('/agents')}
-                                    className="bg-white text-core-purple px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group cursor-pointer"
-                                >
-                                    <Bot className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                                    Start Building
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </button>
-
+                            <div className="flex justify-center items-center mb-12">
                                 <button
                                     onClick={() => navigate('/contact')}
-                                    className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-core-purple transition-all duration-300 flex items-center gap-3 group cursor-pointer"
+                                    className="bg-white text-purple-800 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 hover:shadow-2xl transition-all duration-300 flex items-center gap-3 group cursor-pointer"
                                 >
                                     <Users className="w-6 h-6 group-hover:scale-110 transition-transform" />
                                     Talk to Us
@@ -648,7 +641,7 @@ export default function HomePage() {
             <DemoForm isOpen={showDemoForm} onClose={() => setShowDemoForm(false)} />
 
             {/* Reading Progress */}
-            <ReadingProgress color="#3c1470" size="md" />
+            <ReadingProgress color="#3c1470" size="sm" />
         </div >
     );
 }

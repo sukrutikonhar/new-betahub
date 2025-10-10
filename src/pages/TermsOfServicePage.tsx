@@ -181,7 +181,7 @@ const TermsOfServicePage: React.FC = () => {
             </section>
 
             {/* Reading Progress */}
-            <ReadingProgress color="#3c1470" size="md" />
+            <ReadingProgress color="#3c1470" size="sm" />
         </div>
     );
 };
