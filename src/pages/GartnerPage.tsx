@@ -137,12 +137,17 @@ const GartnerPage: React.FC = () => {
                             <div className="mb-6 sm:mb-8 max-w-4xl">
                                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
                                     <span className="text-white">Gartner</span>
-                                    <span className="text-orange-500 ml-2">IT</span>
+                                    <span className="text-white text-sm ml-1">®</span>
                                 </h1>
-                                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                                    SYMPOSIUM <span className="text-orange-500 mx-2 sm:mx-4">|</span> Xpo
-                                    <span className="text-sm ml-2">TM</span>
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+                                    <span className="text-orange-500">IT</span>
                                 </h2>
+                                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+                                    <span className="text-white">SYMPOSIUM</span>
+                                    <span className="text-orange-500 mx-2 sm:mx-4">|</span>
+                                    <span className="text-white">Xpo</span>
+                                    <span className="text-white text-sm ml-1">™</span>
+                                </h3>
                             </div>
 
                             {/* Event Details and Booth Information */}
