@@ -79,7 +79,7 @@ const GartnerPage: React.FC = () => {
                 ogImage={seoData.ogImage}
             />
             {/* Hero Section */}
-            <section className="relative overflow-hidden min-h-screen flex items-center" style={{
+            <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24" style={{
                 background: 'linear-gradient(135deg, #1a0b2e 0%, #2d1b69 50%, #1a0b2e 100%)'
             }}>
                 {/* Abstract Background Pattern */}
@@ -124,7 +124,7 @@ const GartnerPage: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16 py-8 sm:py-12 lg:py-16 relative z-10">
+                <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
                         {/* Left Side - Content */}
                         <div className="text-white lg:col-span-3">
@@ -134,7 +134,7 @@ const GartnerPage: React.FC = () => {
                             </div>
 
                             {/* Main Title */}
-                            <div className="mb-6 sm:mb-8">
+                            <div className="mb-6 sm:mb-8 max-w-4xl">
                                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
                                     <span className="text-white">Gartner</span>
                                     <span className="text-orange-500 ml-2">IT</span>
@@ -181,7 +181,7 @@ const GartnerPage: React.FC = () => {
                                 {/* Floating Robot Character */}
                                 <div className="relative animate-float">
                                     {/* Robot Body */}
-                                    <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-white rounded-full relative shadow-2xl">
+                                    <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 bg-white rounded-full relative shadow-2xl">
                                         {/* Robot Ears */}
                                         <div className="absolute -top-6 sm:-top-8 left-1/2 transform -translate-x-1/2 flex gap-3 sm:gap-4">
                                             <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white rounded-full"></div>
@@ -193,7 +193,7 @@ const GartnerPage: React.FC = () => {
                                         <div className="absolute top-1/2 -right-6 sm:-right-8 w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full"></div>
 
                                         {/* Robot Face Screen */}
-                                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-24 sm:w-48 sm:h-32 bg-black rounded-2xl flex flex-col items-center justify-center">
+                                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 h-24 sm:w-44 sm:h-28 lg:w-48 lg:h-32 xl:w-56 xl:h-36 bg-black rounded-2xl flex flex-col items-center justify-center">
                                             {/* Eyes */}
                                             <div className="flex gap-6 sm:gap-8 mb-3 sm:mb-4">
                                                 <div className="flex gap-1">
